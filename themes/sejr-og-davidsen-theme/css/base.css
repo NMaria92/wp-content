@@ -428,6 +428,10 @@ footer p {
     margin: 0 var(--pageMarginSpace);
 }
 
+.breadCrumbs a {
+    color: var(--textColor);
+}
+
 .introText {
     margin: 0 var(--pageMarginSpace);
 }
@@ -495,7 +499,7 @@ footer p {
 }
 
 .animalGrid {
-    margin: 0 var(--pageMarginSpace);
+    margin: 50px var(--pageMarginSpace);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* Tre lige store kolonner */
@@ -518,6 +522,39 @@ footer p {
     padding: 18px 37px;
 }
 
+.animalTextContent a {
+    color: var(--greenColor);
+}
+
+.relatedContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.relatedContent img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 530px;
+}
+
+.relatedContentText {
+    padding: 16px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--brownColor);
+}
+
+.relatedContentText h4,
+.relatedContentText h2 {
+    color: var(--whiteColor);
+}
+
+.relatedContentText h4 {
+    font-weight: 400;
+}
 
 
 
