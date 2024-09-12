@@ -392,6 +392,20 @@ footer p {
 
 /* --- BEFORE YOU ADOPT START --- */
 
+.readmore-link {
+    color: var(--greenColor);
+    font: var(--btnWeight) var(--btnSize) var(--btnFont);
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.article-author {
+    font: var(--textWeight) var(--textSize) var(--textFont);
+    color: var(--textColor);
+    margin-bottom: var(--spacing);
+    background-color: var(--greyColor);
+}
+
 /* --- BEFORE YOU ADOPT END --- */
 
 
