@@ -6,15 +6,19 @@
         <h1 class="heroBanner-title-light">Tryghed og trivsel for alle hunde</h1>
     </div>
 </div>
+
 <div>
+    TEST
     <?php the_content(); ?>
 </div>
 <div class="card-container">
     <a href="<?php the_permalink(); ?>">
-        <img src="url(<?php echo get_theme_file_uri('images/bread.jpg') ?>">
+        <img src="url(<?php echo get_theme_file_uri('xxxxx') ?>">
         <p class="gradient-container"><?php echo the_title(); ?></p>
     </a>
 </div>
+
+
 
 
 <?php get_footer(); ?>

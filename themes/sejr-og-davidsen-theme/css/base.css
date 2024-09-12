@@ -68,6 +68,11 @@ main {
     height: 100svh;
 }
 
+body p, body h1, body h2, body h3, body h4, body h5, body a {
+    margin-left: var(--spacingDouble);
+}
+
+
 body p {
     max-width: 75ch;
     text-wrap: pretty;
@@ -280,11 +285,11 @@ footer {
     width: 100vw;
     display: grid;
     grid-template-columns: 30% 25% 25% 20%;
-    grid-gap: var(--spacingDouble);
     padding: var(--spacing);
 }
 
-footer li, footer p {
+footer li,
+footer p {
     list-style: none;
     font: var(--btnWeight) var(--btnSize) var(--btnFont);
     color: var(--lightYellowColor);
@@ -307,7 +312,8 @@ footer li, footer p {
     padding-left: 25%;
 }
 
-.contact-item span, .footer-links a span {
+.contact-item span,
+.footer-links a span {
     margin-right: 10px;
 }
 
@@ -336,7 +342,8 @@ footer li, footer p {
     margin-bottom: 5px;
 }
 
-.footer-hours-title, .footer-sponsors-title {
+.footer-hours-title,
+.footer-sponsors-title {
     padding-top: var(--spacingDouble);
     padding-bottom: var(--spacing);
 }
@@ -349,6 +356,7 @@ footer li, footer p {
 .footer-sponsors img {
     width: 75px;
     height: 75px;
+    padding-bottom: var(--spacing);
 }
 
 

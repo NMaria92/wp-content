@@ -7,8 +7,10 @@
         <h1 class="heroBanner-title-light"><?php the_title(); ?></h1>
     </div>
 </div>
+
 <div>
-    test
+    <?php the_content(); ?>
 </div>
+
 
 <?php get_footer(); ?>
