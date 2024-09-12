@@ -453,6 +453,14 @@ footer p {
     color: var(--textColor);
 }
 
+.filterSearch {
+    display: flex;
+    padding: 23px 5px;
+    background-color: var(--lightYellowColor);
+    width: 1364px;
+    margin: 0 auto;
+}
+
 /* --- ARCHIVE DOGS END --- */
 
 
