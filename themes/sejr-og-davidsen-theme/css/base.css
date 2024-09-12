@@ -48,6 +48,7 @@
     --spacingHalf: 0.5rem;
     --spacingDouble: 2rem;
     --spacingBtn: 1.6rem;
+    --pageMarginSpace: 7.6875rem;
 
 }
 
@@ -65,16 +66,6 @@ html {
 main {
     height: 100svh;
 }
-
-/* body p,
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body a {
-    margin-left: var(--spacingDouble);
-} */
 
 
 body p {
