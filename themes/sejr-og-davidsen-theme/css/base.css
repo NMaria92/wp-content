@@ -394,11 +394,6 @@ footer p {
 
 
 /* --- BOARDING AND ADOPTION START --- */
-
-/* --- BOARDING AND ADOPTION END --- */
-
-
-/* --- ARCHIVE DOGS START --- */
 .heroBanner {
     height: 474px;
     width: 100%;
@@ -413,7 +408,7 @@ footer p {
 
 .titleForPage {
     position: absolute;
-    top: 214px;
+    top: 13.375rem;
     left: 2rem;
     padding: 2rem;
     background-color: rgba(255, 254, 233, 0.65);
@@ -433,14 +428,14 @@ footer p {
 }
 
 .introText {
-    margin: 0 var(--pageMarginSpace);
+    margin: 3.125rem var(--pageMarginSpace);
 }
 
 .adoptionProcess {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--sickGreenColor);
-    padding: 50px var(--pageMarginSpace);
+    padding: 3.125rem var(--pageMarginSpace);
 }
 
 .adoptionProcessContent {
@@ -458,12 +453,93 @@ footer p {
     color: var(--textColor);
 }
 
+.videoMeeting {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3.125rem var(--pageMarginSpace) 6.25rem var(--pageMarginSpace);
+    gap: 2rem;
+}
+
+.animalCard--Image {
+    width: 400px;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--beigeYellowColor);
+}
+
+.animalCard--Image img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.Text--Content {
+    padding: 1.125rem 2.25rem;
+}
+
+.cardItemContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cardItemContainer a {
+    color: var(--beigeYellowColor);
+    background-color: var(--greenColor);
+    padding: 1.375rem 1.5rem;
+    border-radius: 12px;
+    font-size: var(--h5Size);
+    text-align: center;
+    font-family: var(--textFont);
+}
+
+.videoContentVideo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    perspective: 800px;
+}
+
+.layer2 {
+    position: absolute;
+    z-index: -2;
+    top: -10px;
+    left: 28%;
+    rotate: 11deg;
+    transform: rotateX(11deg) rotateY(-10deg);
+    transform-origin: bottom;
+    box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3)
+}
+
+.layer1 {
+
+    transform: rotateX(11deg) rotateY(-10deg);
+    transform-origin: bottom;
+    box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3)
+}
+
+.videoContentText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+/* --- BOARDING AND ADOPTION END --- */
+
+
+/* --- ARCHIVE DOGS START --- */
+
 .filterSearch {
     display: flex;
-    padding: 23px 5px;
+    padding: 1.5rem 5px;
     background-color: var(--beigeYellowColor);
-    width: 1364px;
-    margin: 50px auto;
+    width: 71.05vw;
+    margin: 3.125rem auto;
     justify-content: space-between;
     font-family: var(--textFont);
     box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.3);
@@ -473,7 +549,7 @@ footer p {
 .filter--Btn {
     color: var(--beigeYellowColor);
     background-color: var(--greenColor);
-    padding: 2px 60px;
+    padding: 0.125rem 3.75rem;
     border-radius: 12px;
 }
 
@@ -499,7 +575,7 @@ footer p {
 }
 
 .animalGrid {
-    margin: 50px var(--pageMarginSpace);
+    margin: 3.125rem var(--pageMarginSpace);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* Tre lige store kolonner */
@@ -518,11 +594,7 @@ footer p {
     border-radius: 20px 20px 0 0;
 }
 
-.animalTextContent {
-    padding: 18px 37px;
-}
-
-.animalTextContent a {
+.read--More-a {
     color: var(--greenColor);
 }
 
@@ -538,7 +610,7 @@ footer p {
 }
 
 .relatedContentText {
-    padding: 16px 52px;
+    padding: 1rem 3.25rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -546,8 +618,6 @@ footer p {
     justify-content: center;
     background-color: var(--brownColor);
 }
-
-
 
 /* --- ARCHIVE DOGS END --- */
 
