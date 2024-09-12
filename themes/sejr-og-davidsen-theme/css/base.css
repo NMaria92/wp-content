@@ -60,15 +60,19 @@
 
 html {
     scroll-behavior: smooth;
-    background-color: pink;
-    ! ! !
 }
 
 main {
     height: 100svh;
 }
 
-body p, body h1, body h2, body h3, body h4, body h5, body a {
+body p,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body a {
     margin-left: var(--spacingDouble);
 }
 
@@ -406,8 +410,6 @@ footer p {
 /* --- ARCHIVE DOGS END --- */
 
 
-/*--- SINGLE DOG START  */ 
+/*--- SINGLE DOG START  */
 
-/*--- SINGLE DOG SLUT  */ 
-
-
+/*--- SINGLE DOG SLUT  */
