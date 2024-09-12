@@ -547,15 +547,6 @@ footer p {
     background-color: var(--brownColor);
 }
 
-.relatedContentText h4,
-.relatedContentText h2 {
-    color: var(--whiteColor);
-}
-
-.relatedContentText h4 {
-    font-weight: 400;
-}
-
 
 
 /* --- ARCHIVE DOGS END --- */
