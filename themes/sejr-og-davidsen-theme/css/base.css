@@ -13,18 +13,18 @@
     /* CHARACTER STYLES  */
     /* SIZES */
     --logoSize: 1.8rem;
-    --h1Size: 4.5rem;
-    --h2Size: 4.1rem;
-    --h3Size: 3.3rem;
-    --h4Size: 1.8rem;
-    --h5Size: 2.5rem;
-    --textSize: 1.5rem;
-    --breadcrumbsSize: 1.3rem;
-    --btnSize: 1.6rem;
+    --h1Size: 4rem;
+    --h2Size: 3.125rem;
+    --h3Size: 2.5rem;
+    --h4Size: 1.875rem;
+    --h5Size: 1.375rem;
+    --textSize: 1.125rem;
+    --breadcrumbsSize: 1rem;
+    --btnSize: 1.25rem;
 
     /* WEIGHTS */
     --logoWeight: 700;
-    --h1Weight: 300;
+    --h1Weight: 400;
     --h2Weight: 700;
     --h3Weight: 700;
     --h4Weight: 700;
@@ -48,6 +48,7 @@
     --spacingHalf: 0.5rem;
     --spacingDouble: 2rem;
     --spacingBtn: 1.6rem;
+    --pageMarginSpace: 7.6875rem;
 
 }
 
@@ -64,16 +65,6 @@ html {
 
 main {
     height: 100svh;
-}
-
-body p,
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body a {
-    margin-left: var(--spacingDouble);
 }
 
 
@@ -420,6 +411,55 @@ footer p {
 
 
 /* --- ARCHIVE DOGS START --- */
+.heroBanner {
+    height: 474px;
+    width: 100%;
+    position: relative;
+}
+
+.heroBanner img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.titleForPage {
+    position: absolute;
+    top: 214px;
+    left: 2rem;
+    padding: 2rem;
+    background-color: rgba(255, 254, 233, 0.65);
+    border-radius: 20px;
+}
+
+.breadCrumbs {
+    font: var(--breadcrumbsWeight) var(--breadcrumbsSize) var(--breadcrumbsFont);
+    color: var(--textColor);
+    margin-bottom: var(--spacing);
+    display: flex;
+    margin-left: 123px;
+}
+
+.introText {
+    margin-left: 123px;
+}
+
+.adoptionProcess {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--sickGreenColor);
+    padding: 50px 123px;
+}
+
+.adoptionProcessContent {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.adoptionStep {
+    max-width: 500px;
+}
 
 /* --- ARCHIVE DOGS END --- */
 
