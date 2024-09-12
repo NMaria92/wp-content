@@ -6,6 +6,7 @@
     --h2Font: 'Roboto', sans-serif;
     --h3Font: 'Roboto', sans-serif;
     --h4Font: 'Roboto', sans-serif;
+    --h5Font: 'Roboto', sans-serif;
     --textFont: 'Roboto', sans-serif;
     --breadcrumbsFont: 'Roboto', sans-serif;
     --btnFont: 'Roboto Serif', serif;
@@ -42,13 +43,14 @@
     --sickGreenColor: #DCD8A3;
     --greyColor: #F4F4F4;
     --whiteColor: #FFFFFF;
+    --beigeYellowColor: #F8F8EF;
 
     /* SPACING */
     --spacing: 1rem;
     --spacingHalf: 0.5rem;
     --spacingDouble: 2rem;
     --spacingBtn: 1.6rem;
-    --pageMarginSpace: 7.6875rem;
+    --pageMarginSpace: 8.75rem;
 
 }
 
@@ -423,18 +425,22 @@ footer p {
     color: var(--textColor);
     margin-bottom: var(--spacing);
     display: flex;
-    margin-left: 123px;
+    margin: 0 var(--pageMarginSpace);
+}
+
+.breadCrumbs a {
+    color: var(--textColor);
 }
 
 .introText {
-    margin-left: 123px;
+    margin: 0 var(--pageMarginSpace);
 }
 
 .adoptionProcess {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--sickGreenColor);
-    padding: 50px 123px;
+    padding: 50px var(--pageMarginSpace);
 }
 
 .adoptionProcessContent {
@@ -446,6 +452,102 @@ footer p {
 .adoptionStep {
     max-width: 500px;
 }
+
+.adoptionStep h5 {
+    font-weight: var(--h4Weight);
+    color: var(--textColor);
+}
+
+.filterSearch {
+    display: flex;
+    padding: 23px 5px;
+    background-color: var(--beigeYellowColor);
+    width: 1364px;
+    margin: 50px auto;
+    justify-content: space-between;
+    font-family: var(--textFont);
+    box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.filter--Btn {
+    color: var(--beigeYellowColor);
+    background-color: var(--greenColor);
+    padding: 2px 60px;
+    border-radius: 12px;
+}
+
+
+.filter--Btn:nth-child(2) {
+    margin-left: 1rem;
+    /* Første knap */
+}
+
+.filter--Btn:last-child {
+    margin-right: 2rem;
+    /* Sidste knap */
+}
+
+.filterButtons>span {
+    color: #000000;
+    margin-left: 2rem;
+}
+
+.filterButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.animalGrid {
+    margin: 50px var(--pageMarginSpace);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Tre lige store kolonner */
+    gap: 2rem;
+}
+
+.animalCard {
+    border-radius: 20px 20px 0 0;
+    background-color: var(--beigeYellowColor);
+}
+
+.animalCard img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.animalTextContent {
+    padding: 18px 37px;
+}
+
+.animalTextContent a {
+    color: var(--greenColor);
+}
+
+.relatedContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.relatedContent img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 530px;
+}
+
+.relatedContentText {
+    padding: 16px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--brownColor);
+}
+
+
 
 /* --- ARCHIVE DOGS END --- */
 
