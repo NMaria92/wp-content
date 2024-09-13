@@ -6,6 +6,7 @@
     --h2Font: 'Roboto', sans-serif;
     --h3Font: 'Roboto', sans-serif;
     --h4Font: 'Roboto', sans-serif;
+    --h5Font: 'Roboto', sans-serif;
     --textFont: 'Roboto', sans-serif;
     --breadcrumbsFont: 'Roboto', sans-serif;
     --btnFont: 'Roboto Serif', serif;
@@ -28,7 +29,7 @@
     --h2Weight: 700;
     --h3Weight: 700;
     --h4Weight: 700;
-    --h5Weight: 400;
+    --h5Weight: 700;
     --textWeight: 400;
     --breadcrumbsWeight: 700;
     --btnWeight: 400;
@@ -48,7 +49,7 @@
     --spacingHalf: 0.5rem;
     --spacingDouble: 2rem;
     --spacingBtn: 1.6rem;
-    --pageMarginSpace: 7.6875rem;
+    --pageMarginSpace: 8.75rem;
 
 }
 
@@ -68,7 +69,7 @@ main {
 }
 
 
-body p {
+p {
     max-width: 75ch;
     text-wrap: pretty;
     line-height: 1.7rem;
@@ -93,11 +94,6 @@ body h2 {
     margin-bottom: var(--spacing);
 }
 
-body h2 .brownCard-title {
-    font: var(--h2Weight) var(--h2Size) var(--h2Font);
-    color: var(--whiteColor);
-    margin-bottom: var(--spacing);
-}
 
 body h3 {
     font: var(--h3Weight) var(--h3Size) var(--h3Font);
@@ -108,6 +104,18 @@ body h3 {
 body h4 {
     font: var(--h4Weight) var(--h4Size) var(--h4Font);
     color: var(--textColor);
+    margin-bottom: var(--spacing);
+}
+
+.brownCard-title {
+    font: var(--h2Weight) var(--h2Size) var(--h2Font);
+    color: var(--whiteColor);
+    margin-bottom: var(--spacing);
+}
+
+.brownCard-text {
+    font: var(--textWeight) var(--h4Size) var(--h4Font);
+    color: var(--whiteColor);
     margin-bottom: var(--spacing);
 }
 
@@ -159,8 +167,8 @@ svg {
 
 /* BUTTON STYLING */
 .btn {
-    padding: 0.5rem 1rem;
-    font: var(--btnFont) var(--btnSize) var(--btnWeight) var(--lightYellowColor);
+    padding: var(--spacingBtn);
+    font: var(--btnWeight) var(--btnSize) var(--btnFont);
     background-color: var(--greenColor);
     color: var(--lightYellowColor);
     border: none;
@@ -172,7 +180,7 @@ svg {
 }
 
 .hover-styling {
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
     text-decoration: none;
     /* text-align: center; */
     position: relative;
@@ -383,19 +391,144 @@ footer p {
 
 /* --- BEFORE YOU ADOPT START --- */
 
+.page-container {
+    margin: var(--pageMarginSpace);
+}
+
+.article-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
 .readmore-link {
     color: var(--greenColor);
-    font: var(--btnWeight) var(--btnSize) var(--btnFont);
+    font: var(--h4Weight) var(--btnSize) var(--btnFont);
     text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     text-decoration: none;
 }
 
-.article-author {
+.match-container {
+    display: flex;
+    gap: 5rem;
+    height: 30vh;
+}
+
+.aside-left {
+    background-color: var(--sickGreenColor);
+    border-radius: 20px;
+    width: 20vw;
+    height: 30vh;
+    padding: var(--spacingDouble) 5rem;
+}
+
+.aside-right {
+    object-fit: cover;
+    width: 20vw;
+    height: 30vh;
+    border-radius: 20px;
+    position: relative;
+    bottom: 30rem;
+    left: 22rem;
+}
+
+.dog-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.dogtype-img {
+    object-fit: cover;
+    border-radius: 1.25rem;
+    width: 398px;
+    /* OBS ER DER EN ANDEN LØSNING? */
+    max-width: unset;
+    max-height: 200px;
+}
+
+.hunting-dogtype-img {
+    object-fit: cover;
+    border-radius: 1.25rem;
+    object-position: left top;
+    width: 398px;
+    /* OBS ER DER EN ANDEN LØSNING? */
+    max-width: unset;
+    max-height: 200px;
+}
+
+.adopt-flexbox {
+    display: flex;
+    gap: var(--spacing);
+    margin-bottom: 4rem;
+    max-width: 50vw;
+}
+
+.dogtype-styling {
+    font: var(--textWeight) var(--textSize) var(--textFont);
+    line-height: 1.7rem;
+}
+
+.news-categories {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: var(--spacing);
+    background-color: var(--lightYellowColor);
+    padding: var(--spacing);
+    border-radius: 40px;
+}
+
+.news-black-text {
+    color: var(--textColor);
+}
+
+.bold-styling {
+    font: var(--breadcrumbsWeight) var(--breadcrumbsSize) var(--breadcrumbsFont);
+}
+
+.article-styling {
     font: var(--textWeight) var(--textSize) var(--textFont);
     color: var(--textColor);
     margin-bottom: var(--spacing);
     background-color: var(--greyColor);
+    border-radius: 20px;
+    padding: var(--spacingHalf);
+    width: fit-content;
 }
+
+.article-img {
+    object-fit: cover;
+    border-radius: 20px;
+    max-width: unset;
+    width: 15vw;
+    max-height: 25vh;
+}
+
+.brownCard {
+    background-color: var(--brownColor);
+    display: flex;
+    width: 100vw;
+}
+
+.brownCard img {
+    width: 40%;
+    object-fit: cover;
+}
+
+.brownCard-content {
+    padding: var(--spacingDouble) 15rem;
+    gap: var(--spacingDouble);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50vw;
+}
+
+.btn-brownCard {
+    margin-left: var(--spacingDouble);
+}
+
 
 /* --- BEFORE YOU ADOPT END --- */
 
