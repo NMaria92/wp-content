@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="heroBanner-section-frontpage heroBanner-img" style="background-image: url(<?php echo get_theme_file_uri('XXXX INDSÆT STI XXXX') ?>);">
+<div class="heroBanner-section-frontpage heroBanner-img" style="background-image: url(<?php echo get_theme_file_uri('') ?>);">
     <div class="gradient-container">
         <h1 class="heroBanner-title-bold">Sejr & Davidsens Dyrepension og Internat</h1>
         <h1 class="heroBanner-title-light">Tryghed og trivsel for alle hunde</h1>

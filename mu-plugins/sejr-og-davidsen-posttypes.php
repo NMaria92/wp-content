@@ -27,7 +27,7 @@ function sejr_og_davidsen_posttypes()
             'add_new_item' => 'Tilføj en ny hund',
             'edit_item' => 'Rediger hund',
             'all_items' => 'Alle hunde',
-            'singular_name' => 'hund'
+            'singular_name' => 'Hund'
         ),
         'menu_icon' => 'dashicons-pets',
     ));
@@ -43,7 +43,7 @@ function sejr_og_davidsen_posttypes()
             'add_new_item' => 'Tilføj en ny race',
             'edit_item' => 'Rediger race',
             'all_items' => 'Alle racer',
-            'singular_name' => 'race'
+            'singular_name' => 'Race'
         ),
         'menu_icon' => 'dashicons-book',
     ));
