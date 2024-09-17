@@ -225,6 +225,30 @@ footer a {
     padding-right: var(--spacingDouble);
 }
 
+nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+nav ul ul.submenu {
+    display: none;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    background-color: var(--greenColor);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: var(--spacing);
+}
+
+.submenu li {
+    padding-bottom: var(--spacing);
+}
+
+.submenu li a {
+    font: var(--btnWeight) var(--breadcrumbsSize) var(--btnFont);
+}
+
 
 /* HERO BANNER STYLING */
 .heroBanner-img {
@@ -519,7 +543,7 @@ footer p {
     width: 100%;
     height: 290px;
     object-fit: cover;
-    border-radius: 20px; 
+    border-radius: 20px;
     padding-bottom: var(--spacing);
 }
 

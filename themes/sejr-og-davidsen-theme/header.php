@@ -19,13 +19,23 @@
             <ul>
                 <li <?php if (is_page('Forside') or wp_get_post_parent_id(0) == 5) echo 'class="active-menu"' ?>><a class="hover-styling" href="<?php echo site_url() ?>">Forside</a></li>
                 <li <?php if (is_page('/for-du-adoptere') or wp_get_post_parent_id(0) == 7) echo 'class="active-menu"' ?>><a class="hover-styling" href="<?php echo site_url('/XXXX') ?>">Før du adoptere</a></li>
-                <li <?php if (is_page('/internat-og-adoption') or wp_get_post_parent_id(0) == 9) echo 'class="active-menu"' ?>><a class="hover-styling" href="<?php echo site_url('/XXXX') ?>">Internat & Adoption</a></li>
+                <div class="sub-menu-top">
+                    <li <?php if (is_page('/internat-og-adoption') or wp_get_post_parent_id(0) == 9) echo 'class="active-menu"' ?>>
+                        <a class="hover-styling" href="<?php echo site_url('/XXXX') ?>">Internat & Adoption</a>
+                        <ul class="submenu">
+                            <li><a class="hover-styling" href="<?php echo site_url(' XXX') ?>">Om adoptionsprocessen</a></li>
+                            <li><a class="hover-styling" href="<?php echo site_url('XXX ') ?>">Dyr til adoption</a></li>
+                            <li><a class="hover-styling" href="<?php echo site_url('XXX ') ?>">Om internattet</a></li>
+                        </ul>
+                    </li>
+                </div>
                 <li <?php if (is_page('/hunde-pension') or wp_get_post_parent_id(0) == 11) echo 'class="active-menu"' ?>><a class="hover-styling" href="<?php echo site_url('/XXXX') ?>">Hundepension</a></li>
                 <li <?php if (is_page('/hundetraening') or wp_get_post_parent_id(0) == 13) echo 'class="active-menu"' ?>><a class="hover-styling" href="<?php echo site_url('/XXXX') ?>">Hundetræning</a></li>
                 <li><a class="hover-styling" href="#">Om Os</a></li>
                 <li><a class="hover-styling" href="#">Kontakt</a></li>
             </ul>
         </nav>
+
         <a class="search-icon" href="<?php echo esc_url(site_url('/search')) ?>"><span class="material-symbols-outlined">search</span></a>
 
 
