@@ -65,11 +65,6 @@ html {
     scroll-behavior: smooth;
 }
 
-main {
-    height: 100svh;
-}
-
-
 p {
     max-width: 75ch;
     text-wrap: pretty;
@@ -433,33 +428,25 @@ footer p {
 
 .top-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 100%;
+    grid-template-areas:
+        "headline headline"
+        "text image";
+    margin: var(--spacingDouble) var(--pageMarginSpace);
 }
 
-.text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.top-section h2 {
+    grid-area: headline;
+    max-width: 70vw;
 }
 
-/* .text-content h2 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 20px;
-} */
+.threedogs-img {
+    object-fit: cover;
+    width: 674px;
+    grid-area: image;
+}
 
-/* .text-content p {
-    color: #666;
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px;
-} */
-
-.image-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.top-section-text {
+    grid-area: text;
 }
 
 .image-content img {
@@ -471,27 +458,23 @@ footer p {
 .adoption-options {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    padding: 20px 0;
+    margin: var(--spacing) var(--pageMarginSpace);
 }
 
 
 .adoption-options .card {
     position: relative;
     width: 40%;
-    margin: 2%;
-    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 12px;
     cursor: pointer;
+    padding: var(--spacingDouble) var(--spacing);
 }
-
 
 .adoption-options .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
 
 .adoption-options img {
     width: 100%;
@@ -501,125 +484,61 @@ footer p {
     border-radius: 12px;
 }
 
-
 .adoption-options a {
     position: absolute;
-    bottom: 20px;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    background-color: #DCD8A3;
-    border: 2px solid #DCD8A3;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font: var(--btnWeight) var(--btnSize) var(--btnFont);
+    color: var(--textColor);
+    background-color: rgba(253, 249, 196, 0.65);
+    border-radius: 40px;
+    padding: var(--spacing) 3rem;
+    transition: 0.3s ease, color 0.3s ease;
 }
 
-
 .adoption-options .card:hover a {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(253, 249, 196);
     color: #2c6b2f;
 }
 
-.card a {
-    margin: 0;
-}
-
-
-
 .news-section {
-    background-color: #DCD8A3;
-    padding: 50px 20px;
-}
-
-.news-section h2 {
-    text-align: left;
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 30px;
+    background-color: var(--sickGreenColor);
+    padding: var(--spacingDouble) var(--pageMarginSpace);
 }
 
 .news-grid {
     display: flex;
     justify-content: space-between;
-
+    gap: 6rem;
+    margin-top: 4rem;
 }
 
-.news-left {
-    width: 60%;
-    padding-right: 10px;
+.news-big-img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 20px; 
+    padding-bottom: var(--spacing);
 }
-
-.news-left img {
-    max-width: 100%;
-    width: 700px;
-    height: auto;
-    margin-left: 2rem;
-}
-
-.news-left h3 {
-    color: #333;
-    font-size: 1.8em;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-
-.news-left p {
-    color: #555;
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    width: 710px;
-}
-
-.news-right {
-    width: 50%;
-    margin-right: 0;
-    margin-top: 30px
-}
-
-
-.news-right h3 {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
 
 .news-item {
     display: flex;
-    align-items: flex-start;
     margin-bottom: 2rem;
+    gap: var(--spacing);
 }
-
 
 .news-item img {
-    width: 40%;
-    height: 200px;
+    height: 230px;
+    width: 256px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 20px;
 }
-
 
 .news-text {
-    width: 60%;
+    padding-right: 6rem;
 }
-
-.news-text h4 {
-    font-size: 1.3em;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.news-text p {
-    color: #555;
-    font-size: 1em;
-    line-height: 1.5;
-}
-
 
 /* --- FRONT PAGE END --- */
 

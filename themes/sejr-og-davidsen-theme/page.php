@@ -7,6 +7,7 @@ while (have_posts()) {
     sejr_davidsens_heroBanner();
 ?>
 
+    
 
     <div class="breadcrumbs">
         <?php
