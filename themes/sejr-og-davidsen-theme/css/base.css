@@ -134,20 +134,7 @@ body h5 {
     margin-left: var(--spacing);
 }
 
-.heroBanner-title-bold {
-    font: var(--h2Weight) var(--h1Size) var(--h1Font);
-    color: var(--textColor);
-    margin-bottom: var(--spacing);
-    text-transform: uppercase;
-}
 
-.heroBanner-title-light {
-    font: var(--h1Weight) var(--h1Size) var(--h1Font);
-    color: var(--textColor);
-    margin-bottom: var(--spacing);
-    text-align: center;
-    text-transform: uppercase;
-}
 
 img,
 video,
@@ -187,6 +174,7 @@ svg {
     position: relative;
 }
 
+/* 
 .hover-styling:hover::after,
 .active-menu::after {
     content: "";
@@ -198,7 +186,7 @@ svg {
     background-color: var(--lightYellowColor);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transition: 2s ease-in;
-}
+} */
 
 /* ICON STYLING */
 .material-symbols-outlined {
@@ -273,6 +261,62 @@ footer a {
     flex-direction: column;
     width: fit-content;
     border-radius: 2.5rem;
+}
+
+.pageBanner-text-front {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 254, 233, 0.65);
+    border-radius: 20px;
+    width: 80%;
+}
+
+.pageBanner-text {
+    position: absolute;
+    left: var(--spacingDouble);
+    top: 13.375rem;
+    background-color: rgba(255, 254, 233, 0.65);
+    border-radius: 20px;
+    width: 80%;
+    padding: var(--spacing);
+}
+
+.titleForPage {
+    font: var(--h2Weight) var(--h1Size) var(--h1Font);
+    position: absolute;
+    text-transform: uppercase;
+    top: 13.375rem;
+    left: 2rem;
+    padding: 2rem;
+    background-color: rgba(255, 254, 233, 0.65);
+    border-radius: 20px;
+}
+
+.titleForFrontpage {
+    font: var(--h2Weight) var(--h1Size) var(--h1Font);
+    text-transform: uppercase;
+}
+
+
+.subtitleForPage {
+    font: var(--h1Weight) var(--h1Size) var(--h1Font);
+    color: var(--textColor);
+    margin-bottom: var(--spacing);
+    text-transform: uppercase;
+}
+
+.subtitleForFrontpage {
+    font: var(--h1Weight) var(--h1Size) var(--h1Font);
+    color: var(--textColor);
+    margin-bottom: var(--spacing);
+    text-transform: uppercase;
+}
+
+.pageBanner-text-front h1,
+.pageBanner-text-front h2 {
+    text-align: center;
 }
 
 /* BREADCRUMBS STYLING */
@@ -399,18 +443,18 @@ footer p {
     justify-content: center;
 }
 
-.text-content h2 {
+/* .text-content h2 {
     color: #333;
     font-size: 2em;
     margin-bottom: 20px;
-}
+} */
 
-.text-content p {
+/* .text-content p {
     color: #666;
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 10px;
-}
+} */
 
 .image-content {
     display: flex;
@@ -740,15 +784,6 @@ footer p {
     object-fit: cover;
     height: 100%;
     width: 100%;
-}
-
-.titleForPage {
-    position: absolute;
-    top: 13.375rem;
-    left: 2rem;
-    padding: 2rem;
-    background-color: rgba(255, 254, 233, 0.65);
-    border-radius: 20px;
 }
 
 .breadCrumbs {

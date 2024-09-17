@@ -8,6 +8,8 @@
     </div>
 </div>
 
+dav
+DETTE ER POST PAGE
 <div>
     <?php the_content(); ?>
 </div>

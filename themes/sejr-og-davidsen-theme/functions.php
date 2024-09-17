@@ -1,12 +1,29 @@
 <?php
 
 // Function for custom heroBanner
+function sejr_davidsens_heroBanner_Frontpage()
+{
+    $pageBanner = get_field('hero_banner_background_image');
+?>
+    <div class="heroBanner">
+        <img src="<?php echo esc_url($pageBanner['url']) ?>" alt="<?php echo esc_attr($pageBanner['alt']) ?>">
+        <div class="pageBanner-text-front">
+            <h1 class="titleForFrontpage"><?php echo get_field('hero-banner-title'); ?></h1>
+            <h2 class="subtitleForFrontpage"><?php echo get_field('hero_banner_subtitle'); ?></h2>
+        </div>
+    </div>
+<?php
+}
+
 function sejr_davidsens_heroBanner()
 {
+    $pageBanner = get_field('hero_banner_background_image');
 ?>
-    <div class="heroBanner-section heroBanner-img" style="background-image: url(<?php echo get_theme_file_uri('XXXX INDSÆT STI XXXX') ?>);">
-        <div class="gradient-container">
-            <h1 class="heroBanner-title-light"><?php the_title(); ?></h1>
+    <div class="heroBanner">
+        <img src="<?php echo esc_url($pageBanner['url']) ?>" alt="<?php echo esc_attr($pageBanner['alt']) ?>">
+        <div class="pageBanner-text">
+            <h1 class="titleForFrontPage"><?php echo get_field('hero-banner-title'); ?></h1>
+            <h2 class="subtitleForFrontpage"><?php echo get_field('hero_banner_subtitle'); ?></h2>
         </div>
     </div>
 <?php
