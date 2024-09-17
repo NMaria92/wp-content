@@ -43,6 +43,7 @@
     --sickGreenColor: #DCD8A3;
     --greyColor: #F4F4F4;
     --whiteColor: #FFFFFF;
+    --beigeYellowColor: #F8F8EF;
 
     /* SPACING */
     --spacing: 1rem;
@@ -539,11 +540,6 @@ footer p {
 
 
 /* --- BOARDING AND ADOPTION START --- */
-
-/* --- BOARDING AND ADOPTION END --- */
-
-
-/* --- ARCHIVE DOGS START --- */
 .heroBanner {
     height: 474px;
     width: 100%;
@@ -558,7 +554,7 @@ footer p {
 
 .titleForPage {
     position: absolute;
-    top: 214px;
+    top: 13.375rem;
     left: 2rem;
     padding: 2rem;
     background-color: rgba(255, 254, 233, 0.65);
@@ -570,28 +566,203 @@ footer p {
     color: var(--textColor);
     margin-bottom: var(--spacing);
     display: flex;
-    margin-left: 123px;
+    margin: 0 var(--pageMarginSpace);
+}
+
+.breadCrumbs a {
+    color: var(--textColor);
 }
 
 .introText {
-    margin-left: 123px;
+    margin: 3.125rem var(--pageMarginSpace);
 }
 
 .adoptionProcess {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--sickGreenColor);
-    padding: 50px 123px;
+    padding: 3.125rem var(--pageMarginSpace);
 }
 
 .adoptionProcessContent {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
 .adoptionStep {
     max-width: 500px;
+}
+
+.adoptionStep h5 {
+    font-weight: var(--h4Weight);
+    color: var(--textColor);
+}
+
+.videoMeeting {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3.125rem var(--pageMarginSpace) 6.25rem var(--pageMarginSpace);
+    gap: 2rem;
+}
+
+.animalCard--Image {
+    width: 400px;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--beigeYellowColor);
+}
+
+.animalCard--Image img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.Text--Content {
+    padding: 1.125rem 2.25rem;
+}
+
+.cardItemContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cardItemContainer a {
+    color: var(--beigeYellowColor);
+    background-color: var(--greenColor);
+    padding: 1.375rem 1.5rem;
+    border-radius: 12px;
+    font-size: var(--h5Size);
+    text-align: center;
+    font-family: var(--textFont);
+}
+
+.videoContentVideo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    perspective: 800px;
+}
+
+.layer2 {
+    position: absolute;
+    z-index: -2;
+    top: -10px;
+    left: 28%;
+    rotate: 11deg;
+    transform: rotateX(11deg) rotateY(-10deg);
+    transform-origin: bottom;
+    box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3)
+}
+
+.layer1 {
+
+    transform: rotateX(11deg) rotateY(-10deg);
+    transform-origin: bottom;
+    box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.3)
+}
+
+.videoContentText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+/* --- BOARDING AND ADOPTION END --- */
+
+
+/* --- ARCHIVE DOGS START --- */
+
+.filterSearch {
+    display: flex;
+    padding: 1.5rem 5px;
+    background-color: var(--beigeYellowColor);
+    width: 71.05vw;
+    margin: 3.125rem auto;
+    justify-content: space-between;
+    font-family: var(--textFont);
+    box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.filter--Btn {
+    color: var(--beigeYellowColor);
+    background-color: var(--greenColor);
+    padding: 0.125rem 3.75rem;
+    border-radius: 12px;
+}
+
+
+.filter--Btn:nth-child(2) {
+    margin-left: 1rem;
+    /* Første knap */
+}
+
+.filter--Btn:last-child {
+    margin-right: 2rem;
+    /* Sidste knap */
+}
+
+.filterButtons>span {
+    color: #000000;
+    margin-left: 2rem;
+}
+
+.filterButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.animalGrid {
+    margin: 3.125rem var(--pageMarginSpace);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Tre lige store kolonner */
+    gap: 2rem;
+}
+
+.animalCard {
+    border-radius: 20px 20px 0 0;
+    background-color: var(--beigeYellowColor);
+}
+
+.animalCard img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.read--More-a {
+    color: var(--greenColor);
+}
+
+.relatedContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.relatedContent img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 530px;
+}
+
+.relatedContentText {
+    padding: 1rem 3.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--brownColor);
 }
 
 /* --- ARCHIVE DOGS END --- */
