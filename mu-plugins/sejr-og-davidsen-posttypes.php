@@ -31,4 +31,20 @@ function sejr_og_davidsen_posttypes()
         ),
         'menu_icon' => 'dashicons-pets',
     ));
+
+
+    register_post_type('Racer', array(
+        'public' => true,
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'taxonomies' => array('category'),
+        'labels' => array(
+            'name' => 'Racer',
+            'add_new_item' => 'Tilføj en ny race',
+            'edit_item' => 'Rediger race',
+            'all_items' => 'Alle racer',
+            'singular_name' => 'race'
+        ),
+        'menu_icon' => 'dashicons-book',
+    ));
 }
