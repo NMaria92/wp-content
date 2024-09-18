@@ -45,6 +45,7 @@ add_action('wp_enqueue_scripts', 'sejr_davidsens_files');
 function sejr_davidsens_features()
 {
     add_theme_support('title-tag');
+    add_image_size('bannerImage', 1920, 474, true);
 }
 
 // Add title tag via WordPress event

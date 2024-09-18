@@ -40,7 +40,7 @@
             <a class="hover-styling" href="<?php the_permalink(); ?>"><span class="material-symbols-outlined">sports</span>Book hundetræning</a>
         </div>
         <div>
-            <a class="hover-styling" href="<?php the_permalink(); ?>"><span class="material-symbols-outlined">pets</span>Adoptér en hund</a>
+            <a class="hover-styling" href="<?php the_permalink(71); ?>"><span class="material-symbols-outlined">pets</span>Adoptér en hund</a>
         </div>
         <div>
             <a class="hover-styling" href="<?php the_permalink(); ?>"><span class="material-symbols-outlined">sound_detection_dog_barking</span>Kontakt internat</a>
@@ -66,8 +66,8 @@
         <div class="footer-sponsors-title">
             <p>Sponsorer</p>
         </div>
-        <img src=" " alt="sponsor1">
-        <img src=" " alt="sponsor2">
+        <img src="<?php echo get_theme_file_uri('./images/PetShop_logo-150x150.jpg') ?>" alt="sponsor1" loading="lazy">
+        <img src="<?php echo get_theme_file_uri('./images/sponsor2-150x150.jpg') ?>" alt="sponsor2" loading="lazy">
     </div>
 
 </footer>
