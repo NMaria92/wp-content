@@ -173,14 +173,12 @@ svg {
 }
 
 .hover-styling {
-    /* padding: 0.5rem 1rem; */
     text-decoration: none;
-    /* text-align: center; */
+    text-align: center;
     position: relative;
 }
 
-/* .hover-styling:hover::after,
-.active-menu::after {
+.hover-styling:hover::after {
     content: "";
     position: absolute;
     left: 0;
@@ -190,7 +188,7 @@ svg {
     background-color: var(--lightYellowColor);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transition: 2s ease-in;
-} */
+}
 
 /* ICON STYLING */
 .material-symbols-outlined {
