@@ -47,26 +47,27 @@ $animals = new WP_Query(array(
         while ($animals->have_posts()) {
             $animals->the_post();
             $animalImage = get_field('billede_af_dyret') ?>
-
             <div class="animalCard">
-                <img src="<?php echo esc_url($animalImage['url']) ?>" alt="<?php echo esc_attr($animalImage['alt']) ?>">
-                <div class="Text--Content">
-                    <p><strong>Navn: </strong><?php
-                                                echo get_field('navn_pa_hund');
-                                                ?></p>
-                    <p><strong>Alder: </strong><?php
-                                                echo get_field('alder_pa_dyr');
-                                                ?> år</p>
-                    <?php
-                    $races = get_field('race_pa_dyr');
-                    foreach ($races as $race) {
-                    ?>
-                        <p><strong>Race: </strong><?php echo get_the_title($race); ?></p>
-                    <?php
-                    }
-                    ?>
-                    <p><?php echo wp_trim_words(get_field('praesentation_af_dyr'), 20); ?><a class="read--More-a" href="<?php the_permalink(); ?>">Læs mere</a></p>
-                </div>
+                <a class="card-link" href="<?php the_permalink(); ?>">
+                    <img src="<?php echo esc_url($animalImage['url']) ?>" alt="<?php echo esc_attr($animalImage['alt']) ?>">
+                    <div class="Text--Content">
+                        <p><strong>Navn: </strong><?php
+                                                    echo get_field('navn_pa_hund');
+                                                    ?></p>
+                        <p><strong>Alder: </strong><?php
+                                                    echo get_field('alder_pa_dyr');
+                                                    ?> år</p>
+                        <?php
+                        $races = get_field('race_pa_dyr');
+                        foreach ($races as $race) {
+                        ?>
+                            <p><strong>Race: </strong><?php echo get_the_title($race); ?></p>
+                        <?php
+                        }
+                        ?>
+                        <p><?php echo wp_trim_words(get_field('praesentation_af_dyr'), 20); ?>Læs mere</p>
+                    </div>
+                </a>
             </div>
 
         <?php

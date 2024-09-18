@@ -2,11 +2,14 @@
 
 function sejr_og_davidsen_posttypes()
 {
-    register_post_type('nyheder', array(
+    register_post_type('Nyheder', array(
         'public' => true,
         'show_in_rest' => true,
         'supports' => array('title', 'editor', 'thumbnail'),
         'taxonomies' => array('category'),
+        'has_archive' => true,
+        'public' => true,
+        'rewrite' => array('slug' => 'nyheder'),
         'labels' => array(
             'name' => 'Nyheder',
             'add_new_item' => 'Tilføj en ny Nyhed',

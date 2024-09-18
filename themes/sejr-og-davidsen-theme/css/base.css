@@ -167,6 +167,11 @@ svg {
     text-decoration: none;
 }
 
+.card-link {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
 .hover-styling {
     /* padding: 0.5rem 1rem; */
     text-decoration: none;
@@ -964,6 +969,181 @@ footer p {
 
 
 /*--- SINGLE DOG START  */
+
+.box-container {
+    display: flex;
+}
+
+.box {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.box.filled {
+    background-color: var(--greenColor);
+    border-radius: 5px;
+
+}
+
+.mops {
+    background-color: white;
+    margin: 0 var(--pageMarginSpace);
+    font-size: var(--h1Size);
+    text-transform: uppercase;
+}
+
+.dog-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem var(--pageMarginSpace);
+}
+
+.gridForScales {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.left-column p {
+    margin-bottom: 2rem;
+}
+
+.left-column h3,
+h4 {
+    margin-bottom: 10px;
+}
+
+.right-column {
+    width: 47.5%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0b2;
+    padding: 30px 25px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-align: start;
+}
+
+.info-box p {
+    margin-bottom: 0;
+}
+
+.pug-image {
+    width: 80%;
+    border-radius: 10px;
+
+    margin-top: 20px;
+}
+
+.front-mops {
+    width: 47.5%;
+}
+
+.front-mops img {
+    width: 100%;
+    text-align: right;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.race-mops img {
+    width: 100%;
+    text-align: right;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+
+.profile-details {
+    display: flex;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.profile-details .details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 8rem;
+    font-size: 1.1rem;
+    width: 10%;
+}
+
+
+.details p {
+    margin-bottom: 10px;
+    text-wrap: nowrap;
+}
+
+.mops-h {
+    color: black;
+}
+
+.mops-present {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--pageMarginSpace);
+
+}
+
+.mops-btn {
+    margin: 1rem;
+
+}
+
+
+.image-box {
+    padding: 5rem;
+    border: 1px solid #745D57;
+    background-color: #745D57;
+    margin-top: 4rem;
+}
+
+.image-box h2 {
+    margin-bottom: 4rem;
+    color: white;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+
+
+
+.image-container img {
+    width: 100%;
+    height: 80%;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.image-container h5 {
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+.image-box-text {
+    font-size: 1rem;
+    color: #333;
+}
 
 /*--- SINGLE DOG SLUT  */
 

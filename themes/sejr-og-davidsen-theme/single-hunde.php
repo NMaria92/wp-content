@@ -1,4 +1,3 @@
-<!-- individuelle posts FALLBACK -->
 <?php
 get_header();
 
