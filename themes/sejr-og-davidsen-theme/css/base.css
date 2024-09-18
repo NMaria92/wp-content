@@ -297,18 +297,7 @@ nav ul ul.submenu {
     top: 13.375rem;
     background-color: rgba(255, 254, 233, 0.65);
     border-radius: 20px;
-    padding: var(--spacing);
-}
-
-.titleForPage {
-    font: var(--h2Weight) var(--h1Size) var(--h1Font);
-    position: absolute;
-    text-transform: uppercase;
-    top: 13.375rem;
-    left: 2rem;
-    padding: 2rem;
-    background-color: rgba(255, 254, 233, 0.65);
-    border-radius: 20px;
+    padding: var(--spacing) var(--spacingDouble);
 }
 
 .titleForFrontpage {
@@ -316,13 +305,18 @@ nav ul ul.submenu {
     text-transform: uppercase;
 }
 
-
-.subtitleForPage {
-    font: var(--h1Weight) var(--h1Size) var(--h1Font);
-    color: var(--textColor);
-    margin-bottom: var(--spacing);
+.titleForPage {
+    text-align: left;
+    font: var(--h2Weight) var(--h1Size) var(--h1Font);
     text-transform: uppercase;
 }
+
+.subtitleForPage {
+    text-align: left;
+    font: var(--h1Weight) var(--h1Size) var(--h1Font);
+    text-transform: uppercase;
+}
+
 
 .subtitleForFrontpage {
     font: var(--h1Weight) var(--h1Size) var(--h1Font);

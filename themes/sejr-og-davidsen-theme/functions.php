@@ -12,22 +12,35 @@ function sejr_davidsens_heroBanner_Frontpage()
             <h2 class="subtitleForFrontpage"><?php echo get_field('hero_banner_subtitle'); ?></h2>
         </div>
     </div>
-<?php
+    <?php
 }
 
 function sejr_davidsens_heroBanner()
 {
-    $pageBanner = get_field('hero_banner_background_image');
-?>
-    <div class="heroBanner">
-        <img src="<?php echo esc_url($pageBanner['url']) ?>" alt="<?php echo esc_attr($pageBanner['alt']) ?>">
-        <div class="pageBanner-text">
-            <h1 class="titleForFrontPage"><?php echo get_field('hero-banner-title'); ?></h1>
-            <h2 class="subtitleForFrontpage"><?php echo get_field('hero_banner_subtitle'); ?></h2>
-        </div>
-    </div>
+    $pageBanner = get_field('hero_banner_background_image'); // Hent ACF feltet
+
+    // Tjek om billedet er sat
+    if ($pageBanner) {
+        // Hent billedets ID fra ACF-feltet
+        $bannerImageID = $pageBanner['ID'];
+
+        // Hent URL'en til billedet med størrelsen 'bannerImage'
+        $bannerImage = wp_get_attachment_image_src($bannerImageID, 'bannerImage');
+
+        if ($bannerImage) {
+    ?>
+            <div class="heroBanner">
+                <img src="<?php echo esc_url($bannerImage[0]); ?>" alt="<?php echo esc_attr($pageBanner['alt']); ?>">
+                <div class="pageBanner-text">
+                    <h1 class="titleForPage"><?php echo esc_html(get_field('hero-banner-title')); ?></h1>
+                    <h2 class="subtitleForPage"><?php echo esc_html(get_field('hero_banner_subtitle')); ?></h2>
+                </div>
+            </div>
 <?php
+        }
+    }
 }
+
 
 // Function for stylesheets
 function sejr_davidsens_files()

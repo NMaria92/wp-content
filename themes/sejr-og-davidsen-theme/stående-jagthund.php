@@ -1,3 +1,8 @@
+<?php
+get_header();
+sejr_davidsens_heroBanner();
+?>
+
 <h2>Hundetype: Stående Jagthund</h2>
 <p>De stående jagthunde er fremavlet til at arbejde på stor afstand af jægeren.
     De løber i zig zag på marken, finder og tager stand for harer og fuglevildt (tager stand betyder at stille sig og
@@ -17,6 +22,10 @@
 <div>
     <h4>Vil du vide mere om andre hunde typer?</h4>
     <p>Gå til forrige side og find oversigten over alle hundetyper</p>
-    <span>Gå til: <button class="btn">Før du adoptere</button></span>
+    <span>Gå til: <button class="btn"><a href="./page-for-du-adoptere.php">Før du adoptere</a></button></span>
     <img src="./images/Little_dog_staring_at_camera.jpg" alt="Little_dog_staring_at_camera" loading="lazy">
 </div>
+
+<?php
+get_footer();
+?>
