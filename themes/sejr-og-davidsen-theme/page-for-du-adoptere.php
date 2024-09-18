@@ -94,6 +94,7 @@ sejr_davidsens_heroBanner();
                     bøger og
                     sætte dig grundigt ind i den race du har udset dig, før du anskaffer dit nye familiemedlem.
                 </p>
+                <br><br>
                 <h4>Du kan læse om de forskellige hunde grupper her: </h4>
             </div>
             <aside class="aside-container">
@@ -102,7 +103,7 @@ sejr_davidsens_heroBanner();
                     <p>Du er mere end velkommen til at kontakte os og få vejledning i “det gode match” og valg af
                         hunderace.
                     </p>
-                    <button class="btn hover-styling">Kontakt os her</button>
+                    <button class="btn hover-styling"><a href="#">Kontakt os her</a></button>
                 </div>
                 <img class="aside-right" src="<?php echo get_theme_file_uri('./images/Girl_thinking_about_two_dogs-768x768.jpg') ?>" alt="kvinde der tænker på to hunde" loading="lazy">
             </aside>

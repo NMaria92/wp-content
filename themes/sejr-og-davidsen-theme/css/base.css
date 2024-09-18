@@ -577,6 +577,8 @@ footer p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+    margin-bottom: 8rem;
+    margin-top: 4rem;
 }
 
 .readmore-link {
@@ -589,25 +591,23 @@ footer p {
 .match-container {
     display: flex;
     gap: 5rem;
-    height: 30vh;
+    height: 70vh;
 }
 
 .aside-left {
     background-color: var(--sickGreenColor);
     border-radius: 20px;
     width: 20vw;
-    height: 30vh;
     padding: var(--spacingDouble) 5rem;
 }
 
 .aside-right {
     object-fit: cover;
     width: 20vw;
-    height: 30vh;
     border-radius: 20px;
     position: relative;
     bottom: 30rem;
-    left: 22rem;
+    left: 20rem;
 }
 
 .dog-types {
