@@ -2,6 +2,7 @@
 
 <?php
 get_header();
+sejr_davidsens_heroBanner();
 
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
@@ -13,16 +14,6 @@ $animals = new WP_Query(array(
 ?>
 
 <main>
-
-    <div class="heroBanner">
-        <img src="<?php echo get_theme_file_uri('./images/two_old_people_with_dog.jpg') ?>" alt="">
-        <div class="pageBanner-text">
-            <h1 class="titleForFrontpage">INTERNAT & ADOPTION</h1>
-            <h2 class="subtitleForFrontpage">DYR TIL ADOPTION</h2>
-        </div>
-
-    </div>
-
 
     <?php
     $theParent = wp_get_post_parent_id(get_the_ID()); // Variabel that gets the parent page ID
@@ -36,9 +27,6 @@ $animals = new WP_Query(array(
         <?php endif; ?>
         <span><?php the_title(); ?></span> <!-- Viser den aktuelle side -->
     </div>
-
-
-
 
 
 
@@ -125,12 +113,12 @@ $animals = new WP_Query(array(
         </div>
     </article>
 
-    <section class="relatedContent">
+    <section class="brownCard">
         <img src="<?php echo get_theme_file_uri('./images/Dog_jumping_over_a_fence-1024x762.JPG') ?>" alt="">
-        <div class="relatedContentText">
+        <div class="brownCard-content">
             <h2 class="brownCard-title">Vil du give din nye hund den bedste start med hundetræning?</h2>
             <p class="brownCard-text">Hos Sejr & Davidsens Dyrepension og -internat tilbyder et bredt udvalg af hundetræning til dig og din hund. Vi starter hold hvert kvartal så skynd dig ind og find dit næste hold. </p>
-            <a class="btn" href="#">Find et træningshold</a>
+            <span class="brownCard-text"><button class="btn btn-brownCard"><a href="#">Find et træningshold</a></button></span>
         </div>
     </section>
 

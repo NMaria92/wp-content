@@ -162,6 +162,11 @@ svg {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.btn a {
+    color: var(--lightYellowColor);
+    text-decoration: none;
+}
+
 .hover-styling {
     /* padding: 0.5rem 1rem; */
     text-decoration: none;
@@ -913,7 +918,7 @@ footer p {
     color: var(--greenColor);
 }
 
-.relatedContent {
+/* .relatedContent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -932,7 +937,7 @@ footer p {
     align-items: flex-start;
     justify-content: center;
     background-color: var(--brownColor);
-}
+} */
 
 /* Paginate links styling */
 

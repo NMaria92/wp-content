@@ -120,7 +120,7 @@ sejr_davidsens_heroBanner();
                             er jæger, skal man være
                             indstillet på at gøre en meget betydelig indsats for at tilfredsstille hundens behov for
                             motion
-                            og for at bruge sine iboende jagtegenskaber…<a class="readmore-link" href="#">Læs
+                            og for at bruge sine iboende jagtegenskaber…<a class="readmore-link" href="./stående-jagthund.php">Læs
                                 mere</a></div>
                     </div>
                 </div>
@@ -260,12 +260,12 @@ sejr_davidsens_heroBanner();
         </section>
     </div>
     <section class="brownCard">
-        <img src="<?php echo get_theme_file_uri('./images/Black_dog_sitting_in_couch-1536x996.jpg') ?>" alt="Sort hund i sofa" loading="lazy">
+        <img src="<?php echo get_theme_file_uri('./images/Black_dog_sitting_in_couch-1536x996.jpg') ?>" alt="Sort hund" loading="lazy">
         <div class="brownCard-content">
             <h2 class="brownCard-title">Er du klar til hund?</h2>
             <p class="brownCard-text">Se oversigten over hunde på vores internat, der er klar til bortadoption.</p>
-            <span class="brownCard-text">Gå til: <button class="btn btn-brownCard">Internat &
-                    Adoption</button></span>
+            <span class="brownCard-text">Gå til: <button class="btn btn-brownCard"><a href="./home.php">Internat &
+                        Adoption</a></button></span>
         </div>
     </section>
 </main>
