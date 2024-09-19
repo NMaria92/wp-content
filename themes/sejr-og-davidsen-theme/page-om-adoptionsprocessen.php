@@ -1,14 +1,9 @@
 <?php get_header();
 sejr_davidsens_heroBanner();
+custom_breadcrumbs();
 ?>
 
 <main>
-
-    <!-- <div class="breadCrumbs">
-        <a href="#">Forside</a>
-
-        <a href="#"> Internat & Adoption</a>
-    </div> -->
 
     <p class="introText">
         På Sejr & Davidsens Dyrepension og -internat går vi meget op i det gode match imellem dyr og ejer. Vi har derfor en længere adoptionsproces for at afgøre om det rigtige match er tilstede. Nedenfor kan du læse hvordan processen forløber:

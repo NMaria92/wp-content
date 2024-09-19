@@ -1,8 +1,7 @@
-<!-- A generic template file for the post-page -->
-
 <?php
 get_header();
 sejr_davidsens_heroBanner();
+custom_breadcrumbs();
 
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
@@ -14,22 +13,6 @@ $animals = new WP_Query(array(
 ?>
 
 <main>
-
-    <?php
-    $theParent = wp_get_post_parent_id(get_the_ID()); // Variabel that gets the parent page ID
-    ?>
-    <div class="breadcrumbs">
-        <a href="<?php echo site_url(); ?>"><?php echo the_title() ?> > </a>
-
-        <!-- If the current page has a parent, display a link to the parent page -->
-        <?php if ($theParent) : ?>
-            <a href="<?php echo get_permalink($theParent); ?>"><?php echo the_title($theParent); ?> ></a>
-        <?php endif; ?>
-        <span><?php the_title(); ?></span> <!-- Viser den aktuelle side -->
-    </div>
-
-
-
     <div class="filterSearch">
         <div class="filterButtons">
             <span class="material-symbols-outlined">tune</span>

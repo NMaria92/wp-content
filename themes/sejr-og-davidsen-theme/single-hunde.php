@@ -1,11 +1,12 @@
 <?php
 get_header();
+custom_breadcrumbs();
+
 
 while (have_posts()) {
     the_post();
 }
 ?>
-
 
 <header class="mops">
     <h1><?php echo get_field('navn_pa_hund'); ?></h1>

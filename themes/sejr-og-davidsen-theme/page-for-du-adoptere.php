@@ -1,12 +1,12 @@
 <?php get_header();
 sejr_davidsens_heroBanner();
+custom_breadcrumbs();
 ?>
 
 
 
 <main>
     <div class="page-container">
-        <div class="breadcrumbs"></div>
         <h2>Vigtige overvejelser inden du anskaffer dig en hund</h2>
         <h4>Der er mange ting man bør overveje før man anskaffer sig en hund.</h4>
         <h4>Det er nemlig ikke gratis at have kæledyr - Det koster penge, tid, opmærksomhed og pleje.</h4>
