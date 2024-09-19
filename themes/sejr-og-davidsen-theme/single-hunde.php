@@ -7,10 +7,10 @@ while (have_posts()) {
     the_post();
 }
 ?>
-
-<header class="mops">
-    <h1><?php echo get_field('navn_pa_hund'); ?></h1>
-</header>
+<a class="returnBtn" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption') ?>">«<span class="material-symbols-outlined">
+        home
+    </span> Dyr til adoption</a>
+<h1 class="mops"><?php echo get_field('navn_pa_hund'); ?></h1>
 <section class="mops-present">
     <div>
         <h5 class="mops-h">Præsentation</h5>

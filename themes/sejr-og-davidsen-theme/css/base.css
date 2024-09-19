@@ -190,6 +190,57 @@ svg {
     transition: 2s ease-in;
 }
 
+.returnBtn {
+    margin: 1rem 0;
+    margin-left: var(--pageMarginSpace);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 0.5rem;
+    background: linear-gradient(#d67e0a, #815206);
+    color: var(--whiteColor);
+    font-family: var(--textFont);
+    border-radius: 0.5rem;
+    transition: scale 0.5s ease;
+}
+
+.returnBtn:hover {
+    background: linear-gradient(#b15d08, #5e3704);
+}
+
+
+.returnBtn:hover .material-symbols-outlined {
+    animation: rotate 0.5s ease;
+}
+
+.returnBtn span {
+    font-size: 30px;
+}
+
+@keyframes rotate {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+        scale: 1.1;
+    }
+
+    50% {
+        transform: rotate(10deg);
+        scale: 1;
+    }
+
+
+    75% {
+        transform: rotate(-10deg);
+        scale: 1.1;
+    }
+}
+
 /* ICON STYLING */
 .material-symbols-outlined {
     color: var(--lightYellowColor);
