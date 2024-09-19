@@ -1,16 +1,16 @@
-<!-- individuelle posts FALLBACK -->
 <?php
 get_header();
+custom_breadcrumbs();
+
 
 while (have_posts()) {
     the_post();
 }
 ?>
-
-
-<header class="mops">
-    <h1><?php echo get_field('navn_pa_hund'); ?></h1>
-</header>
+<a class="returnBtn" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption') ?>">«<span class="material-symbols-outlined">
+        home
+    </span> Dyr til adoption</a>
+<h1 class="mops"><?php echo get_field('navn_pa_hund'); ?></h1>
 <section class="mops-present">
     <div>
         <h5 class="mops-h">Præsentation</h5>
@@ -207,7 +207,7 @@ wp_reset_postdata();
             $recent_posts_query->the_post();
             $recent_postsImage = get_field('billede_af_dyret') ?>
 
-            <a href="#link1">
+            <a href="<?php echo get_permalink(); ?>">
                 <img src="<?php echo esc_url($recent_postsImage['url']) ?>" alt="<?php echo esc_attr($recent_postsImage['alt']) ?>">
                 <h5><?php echo get_field('navn_pa_hund'); ?></h5>
             </a>

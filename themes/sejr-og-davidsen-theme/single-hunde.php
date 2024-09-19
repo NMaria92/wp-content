@@ -36,23 +36,20 @@ while (have_posts()) {
                     <p><strong>Farve:</strong> <?php echo get_field('farve'); ?></p>
 
                     <?php
-
-                    $race = get_field('race_pa_dyr');
-
-                    if ($race) {
+                    if ($races) {
                         // Hvis der er en race forbundet med hunden, skift til racen
-                        foreach ($race as $single_race) {
+                        foreach ($races as $single_race) {
                             // Skift postdata til race-posten
-                            $race_id = $single_race->ID; // Race-ID'et
-                            $race_title = get_the_title($race_id); // Titel på racen (navnet)
+                            $race_id = $single_race->ID; // Race-ID'et gemmes i en variabel
+                            $race_title = get_the_title($race_id); // Titel på racen (navnet) som ovenstående ID bærer, skal gemmes i en variabel
 
-                            // Setup postdata for race-posten
+                            // Setup postdata for race-posten. Vi skifter posttype fra "hunde" til "racer"
                             setup_postdata($single_race);
 
                             // Output racens data
                     ?>
 
-                            <p><strong>Allergivenlig:</strong> <?php echo get_field('allergivenlig', $race_id) ? 'Ja' : 'Nej'; ?></p>
+                            <p><strong>Allergivenlig:</strong> <?php echo get_field('allergivenlig', $race_id) ?></p>
                             <p><strong>Gennemsnitlig levealder:</strong> <?php echo get_field('gennemsnits_levealder', $race_id) ?> år</p>
 
                     <?php
@@ -63,9 +60,9 @@ while (have_posts()) {
                     ?>
                 </div>
             </section>
-            <button class="btn">Book videomøde</button>
-            <button class="btn mops-btn">Book fysisk møde</button>
-            <button class="btn">Kontakt os</button>
+            <a class="btn">Book videomøde</a>
+            <a class="btn mops-btn">Book fysisk møde</a>
+            <a class="btn">Kontakt os</a>
         </div>
     </div>
 
@@ -77,7 +74,8 @@ while (have_posts()) {
             <img class="front-mops" src="<?php echo esc_url($animalImage['url']) ?>" alt="<?php echo esc_attr($animalImage['alt']) ?>">
         <?php
         } else {
-            echo '<img src="' . get_theme_file_uri('./images/Mops_sitting_in_grassfield.jpg') . '" alt="Mops sitting in a grassfield">';
+            // Fallback image, hvis der ikke er et billede
+            echo '<img src="' . get_theme_file_uri('./images/fallback_image.jpg') . '" alt="Billede undervejs">';
         }
         ?>
     </div>
@@ -105,8 +103,9 @@ while (have_posts()) {
                     <?php
                     $familievenlig = get_field('familievenlig', $race_id);
 
-
-                    $filled_boxes = round($familievenlig);
+                    // For-loop der udskriver ratingen (i form af udfyldte og tomme bokse) for familievenlighed
+                    // Loopet er nødvendigt for at omstille værdien fra WP til en visuel skala i HTML
+                    $filled_boxes = $familievenlig;
                     for ($i = 1; $i <= 5; $i++) {
                         if ($i <= $filled_boxes) {
                             echo '<div class="box filled"></div>';
@@ -124,7 +123,7 @@ while (have_posts()) {
                 <div class="box-container">
                     <?php
                     $pelspleje = get_field('pelspleje', $race_id);
-                    $filled_boxes = round($pelspleje);
+                    $filled_boxes = $pelspleje;
 
                     for ($i = 1; $i <= 5; $i++) {
                         if ($i <= $filled_boxes) {
@@ -142,7 +141,7 @@ while (have_posts()) {
                 <div class="box-container">
                     <?php
                     $aktivitetsniveau = get_field('aktivitetsniveau', $race_id);
-                    $filled_boxes = round($aktivitetsniveau);
+                    $filled_boxes = $aktivitetsniveau;
 
                     for ($i = 1; $i <= 5; $i++) {
                         if ($i <= $filled_boxes) {
@@ -160,7 +159,7 @@ while (have_posts()) {
                 <div class="box-container">
                     <?php
                     $temperament = get_field('temperament', $race_id);
-                    $filled_boxes = round($temperament);
+                    $filled_boxes = $temperament;
 
                     for ($i = 1; $i <= 5; $i++) {
                         if ($i <= $filled_boxes) {
@@ -195,9 +194,9 @@ wp_reset_postdata();
     <div class="image-container">
 
         <?php
-        // Lav en ny WP_Query for at hente de seneste 4 posts
+        // en WP_Query der henter de seneste 4 posts
         $recent_posts_query = new WP_Query(array(
-            'posts_per_page' => 4, // Antallet af posts, du ønsker at vise
+            'posts_per_page' => 4, // Antallet af posts
             'post_type' => 'Hunde', // Posttypen (her standard "post")
             'orderby' => 'date', // Sortér efter dato
             'order' => 'DESC' // Sortér i faldende rækkefølge (nyeste først)
@@ -207,7 +206,7 @@ wp_reset_postdata();
             $recent_posts_query->the_post();
             $recent_postsImage = get_field('billede_af_dyret') ?>
 
-            <a href="#link1">
+            <a href="<?php echo get_permalink(); ?>">
                 <img src="<?php echo esc_url($recent_postsImage['url']) ?>" alt="<?php echo esc_attr($recent_postsImage['alt']) ?>">
                 <h5><?php echo get_field('navn_pa_hund'); ?></h5>
             </a>

@@ -103,7 +103,7 @@ custom_breadcrumbs();
                     <p>Du er mere end velkommen til at kontakte os og få vejledning i “det gode match” og valg af
                         hunderace.
                     </p>
-                    <button class="btn hover-styling"><a href="#">Kontakt os her</a></button>
+                    <a class="btn hover-styling"><a href="#">Kontakt os her</a></a>
                 </div>
                 <img class="aside-right" src="<?php echo get_theme_file_uri('./images/Girl_thinking_about_two_dogs-768x768.jpg') ?>" alt="kvinde der tænker på to hunde" loading="lazy">
             </aside>
@@ -210,54 +210,57 @@ custom_breadcrumbs();
             <h2>Indsigtsfulde artikler for hundeejere</h2>
             <div class="news-categories">
                 <h5 class="news-black-text">Kategorier:</h5>
-                <button class="btn">Nyheder</button>
-                <button class="btn">Tips & Tricks</button>
-                <button class="btn">Sundhed</button>
-                <button class="btn">Hundens adfærd</button>
-                <button class="btn">Pleje</button>
-                <button class="btn">Alle artikler</button>
+                <a class="btn" href="<?php echo get_term_link('nyheder', 'category') ?>">Nyheder</a>
+                <a class="btn" href="<?php echo get_term_link('tipsogtricks', 'category') ?>">Tips & Tricks</a>
+                <a class="btn" href="<?php echo get_term_link('sundhed', 'category'); ?>">Sundhed</a>
+                <a class="btn" href="<?php echo get_term_link('hundens_adfaerd', 'category'); ?>">Hundens adfærd</a>
+                <a class="btn" href="<?php echo get_term_link('pleje', 'category'); ?>">Pleje</a>
+                <a class="btn" href="<?php echo get_term_link('alle_artikler', 'category'); ?>">Alle artikler</a>
             </div>
             <h5 class="news-black-text">Nyeste artikler:</h5>
-            <div class="adopt-flexbox">
-                <div>
-                    <img class="article-img" src="<?php echo get_theme_file_uri('./images/Rabies_needles.jpg') ?>" alt="Rabies sprøjter"
-                        loading="lazy">
-                </div>
-                <div>
-                    <p class="article-styling">Skrevet af <span class="bold-styling">Majbrit Kjær</span> d.
-                        03-09-2024
-                        i <span class="bold-styling">Nyheder</span>
-                    </p>
-                    <h5 class="news-black-text">Nye rabies-regler træder i kraft</h5>
-                    <div class="dogtype-styling">Den 1. Januar 2025 træder en ny regel i kraft om at man ikke
-                        længere må importere hvalpe med den
-                        såkaldte hvalpe/killingeerklæring. Erklæringen gør det muligt at flytte hunde, katte og
-                        fritter ind i
-                        Danmark uden at dyret har en rabiesvaccine der er gyldig…
-                        <a class="readmore-link" href="">Læs mere</a>
+            <?php
+
+            $articles = new WP_Query(
+                array(
+                    'category_name' => 'nyheder',
+                    'post_type' => 'nyheder',
+                    'posts_per_page' => 2,
+                    'orderby' => 'date',
+                    'order' => 'ASC',
+                )
+            );
+
+            while ($articles->have_posts()) {
+                $articles->the_post();
+                $image_url = get_field('billede')['url'];
+                $image_alt = get_field('billede')['alt'];
+            ?>
+                <div class="introText">
+                    <div>
+                        <img class="article-img" src="<?php echo esc_url($image_url) ?>" alt="<?php echo $image_alt; ?>"
+                            loading="lazy">
+                    </div>
+                    <div>
+                        <p class="article-styling">Skrevet af <span class="bold-styling"><?php the_author_posts_link(); ?></span> d. <?php the_time('n.j.y'); ?>
+                            i <span class="bold-styling"><?php echo get_the_category_list(','); ?></span>
+                        </p>
+
+                        <h5 class="news-black-text"><?php the_title(); ?></h5>
+                        <div class="dogtype-styling">
+                            <p><?php echo wp_trim_words(get_field('indhold'), 25); ?><a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="adopt-flexbox">
-                <div>
-                    <img class="article-img" src="<?php echo get_theme_file_uri('./images/Woman_washing_dog.jpg') ?>" alt="Kvinde der børster hund med børste"
-                        loading="lazy">
-                </div>
-                <div>
-                    <p class="article-styling">Skrevet af<span class="bold-styling">Niels Burgenheim</span> d.
-                        10-09-2024 i <span class="bold-styling">Tips&Tricks</span>
-                    </p>
-                    <h5 class="news-black-text">Pelspleje af din hund</h5>
-                    <div class="dogtype-styling">Pelspleje er en essentiel del af at holde sin hund sund og rask.
-                        Med en ren, børstet pels
-                        sikre man at løse hår og skidt børstes af, huden holdes ren og blodcirkulationen igang. En
-                        velplejet pels
-                        spiller også en afgørende rolle for hundens overordnede sundhed, kan mindske hudirritationer
-                        og
-                        allergier…<a class="readmore-link" href="">Læs mere</a></div>
-                </div>
-            </div>
+
+            <?php
+            }
+            echo paginate_links();
+
+            wp_reset_postdata();
+            ?>
+
+
         </section>
     </div>
     <section class="brownCard">
@@ -265,8 +268,7 @@ custom_breadcrumbs();
         <div class="brownCard-content">
             <h2 class="brownCard-title">Er du klar til hund?</h2>
             <p class="brownCard-text">Se oversigten over hunde på vores internat, der er klar til bortadoption.</p>
-            <span class="brownCard-text">Gå til: <button class="btn btn-brownCard"><a href="./home.php">Internat &
-                        Adoption</a></button></span>
+            <span class="brownCard-text">Gå til: <a class="btn btn-brownCard" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption'); ?> ">Dyr til adoption</a></span>
         </div>
     </section>
 </main>

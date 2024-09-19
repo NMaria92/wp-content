@@ -4,7 +4,7 @@ sejr_davidsens_heroBanner();
 
 <div>
     <main>
-        <h1 class="titleForPage archiveTitle">Artikler: Nyheder</h1>
+        <h1 class="titleForPage archiveTitle">Arkiv: Nyheder</h1>
         <?php
 
         $articles = new WP_Query(
@@ -34,8 +34,9 @@ sejr_davidsens_heroBanner();
 
                     <h5 class="news-black-text"><?php the_title(); ?></h5>
                     <div class="dogtype-styling">
-                        <p><?php echo wp_trim_words(get_field('indhold'), 25); ?></p>
-                        <a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a>
+                        <p><?php echo wp_trim_words(get_field('indhold'), 25); ?>
+                            <a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a>
+                        </p>
                     </div>
                     <hr class="section-break">
                 </div>
@@ -50,7 +51,7 @@ sejr_davidsens_heroBanner();
         ?>
         <div class="archive-container">
             <h5 class="news-black-text">Gå tilbage til:</h5>
-            <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Alle Nyheder</a>
+            <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Alle Artikler</a>
         </div>
     </main>
 </div>

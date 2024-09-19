@@ -4,7 +4,7 @@ sejr_davidsens_heroBanner();
 
 <div>
     <main>
-        <h1 class="titleForPage archiveTitle">Artikler: Tips & Tricks</h1>
+        <h1 class="titleForPage archiveTitle">Arkiv: Tips & Tricks</h1>
         <?php
 
         $tipsogtricksArticles = new WP_Query(
@@ -21,7 +21,7 @@ sejr_davidsens_heroBanner();
             $tipsogtricksArticles->the_post();
             $image_url = get_field('billede')['url'];
             $image_alt = get_field('billede')['alt'];
-        
+
         ?>
             <div class="introText">
                 <div>
@@ -42,7 +42,7 @@ sejr_davidsens_heroBanner();
                 </div>
                 <div class="archive-container">
                     <h5 class="news-black-text">Gå tilbage til:</h5>
-                    <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Alle Nyheder</a>
+                    <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Alle Artikler</a>
                 </div>
             </div>
 

@@ -68,7 +68,7 @@ html {
 p {
     max-width: 75ch;
     text-wrap: pretty;
-    line-height: 1.7rem;
+    line-height: 1.7rem !important;
     font: var(--textWeight) var(--textSize) var(--textFont);
     color: var(--textColor);
     margin-bottom: var(--spacing);
@@ -76,6 +76,7 @@ p {
 
 a {
     text-decoration: none;
+    color: var(--textColor);
 }
 
 body h1 {
@@ -501,7 +502,6 @@ footer p {
     transform: scale(1.05);
     transition: 0.5s;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-
 }
 
 .top-section {
@@ -568,7 +568,7 @@ footer p {
     left: 50%;
     transform: translateX(-50%);
     text-decoration: none;
-    font: var(--btnWeight) var(--btnSize) var(--btnFont);
+    font: var(--btnWeight) var(--breadcrumbsSize) var(--btnFont);
     color: var(--textColor);
     background-color: rgba(253, 249, 196, 0.65);
     border-radius: 40px;
@@ -665,7 +665,12 @@ footer p {
 .match-container {
     display: flex;
     gap: 5rem;
-    height: 70vh;
+    margin-bottom: 4rem;
+}
+
+.aside-container {
+    display: flex;
+    position: relative;
 }
 
 .aside-left {
@@ -679,8 +684,8 @@ footer p {
     object-fit: cover;
     width: 20vw;
     border-radius: 20px;
-    position: relative;
-    bottom: 30rem;
+    position: absolute;
+    bottom: 5rem;
     left: 20rem;
 }
 
@@ -694,7 +699,6 @@ footer p {
     object-fit: cover;
     border-radius: 1.25rem;
     width: 398px;
-    /* OBS ER DER EN ANDEN LØSNING? */
     max-width: unset;
     max-height: 200px;
 }
@@ -704,7 +708,6 @@ footer p {
     border-radius: 1.25rem;
     object-position: left top;
     width: 398px;
-    /* OBS ER DER EN ANDEN LØSNING? */
     max-width: unset;
     max-height: 200px;
 }
@@ -754,7 +757,6 @@ footer p {
     border-radius: 20px;
     max-width: unset;
     width: 15vw;
-    max-height: 25vh;
 }
 
 .brownCard {
@@ -1132,6 +1134,11 @@ h4 {
     width: 10%;
 }
 
+.profile-details+a {
+    margin-top: var(--spacingDouble);
+    display: inline-block;
+}
+
 
 .details p {
     margin-bottom: 10px;
@@ -1216,4 +1223,8 @@ h4 {
     align-items: center;
     margin-bottom: 4rem;
     margin-left: var(--pageMarginSpace);
+}
+
+.archive-container h5 {
+    margin: 0;
 }

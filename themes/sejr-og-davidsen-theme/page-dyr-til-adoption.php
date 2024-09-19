@@ -102,7 +102,7 @@ $animals = new WP_Query(array(
         <div class="brownCard-content">
             <h2 class="brownCard-title">Vil du give din nye hund den bedste start med hundetræning?</h2>
             <p class="brownCard-text">Hos Sejr & Davidsens Dyrepension og -internat tilbyder et bredt udvalg af hundetræning til dig og din hund. Vi starter hold hvert kvartal så skynd dig ind og find dit næste hold. </p>
-            <span class="brownCard-text"><button class="btn btn-brownCard"><a href="#">Find et træningshold</a></button></span>
+            <span class="brownCard-text"><a class="btn btn-brownCard" href="#">Find et træningshold</a></span>
         </div>
     </section>
 

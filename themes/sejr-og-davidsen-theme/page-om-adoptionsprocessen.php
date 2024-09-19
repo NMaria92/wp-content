@@ -79,7 +79,7 @@ custom_breadcrumbs();
                             <p><strong>Alder:</strong> 9 Måneder</p>
                             <p><strong>Race:</strong> Mops</p>
                         </div>
-                        <a href="#">Online Møde</a>
+                        <a href="">Online Møde</a>
                     </div>
                     <p>Birger er en hjertevarm og kærlig lille fyr, der elsker at sprede glæde og kærlighed omkring sig. Med sin nuttede ansigt og de store, runde øjne… <a class="read--More-a" href="#">Læs mere</a></p>
                 </div>
@@ -91,7 +91,7 @@ custom_breadcrumbs();
         <div class="brownCard-content">
             <h2 class="brownCard-title">Er du klar til at finde dit næste kæledyr?</h2>
             <p class="brownCard-text">Hos Sejr & Davidsens Dyrepension og internat får vi ofte forskellige dyr ind på vores internat. Hvilket dyr skal være din kommende bedste ven?</p>
-            <span class="brownCard-text"><button class="btn btn-brownCard"><a href="./home.php">Find dyr til adoption</a></button></span>
+            <span class="brownCard-text"><a class="btn btn-brownCard" href="./home.php">Find dyr til adoption</a></span>
         </div>
     </section>
 </main>
