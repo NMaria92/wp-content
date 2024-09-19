@@ -6,7 +6,7 @@ custom_breadcrumbs();
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
 $animals = new WP_Query(array(
-    'posts_per_page' => 9,
+    'posts_per_page' => 2,
     'post_type' => 'Hunde',
     'paged' => $paged
 ));
