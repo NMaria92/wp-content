@@ -560,6 +560,7 @@ footer p {
 
 .news-section-grand-flexbox {
     display: flex;
+    gap: var(--spacingDouble);
 }
 
 .newest-article-section {
