@@ -1,3 +1,4 @@
+<!-- ARKIVSIDE - INDEHOLDER ALLE ARTIKLER-->
 <?php
 get_header();
 sejr_davidsens_heroBanner();
@@ -7,7 +8,8 @@ sejr_davidsens_heroBanner();
     <h1 class="titleForPage archiveTitle">Arkiv: Alle Artikler</h1>
     <?php
 
-
+    // Vi laver et WP_Query, som henter alle artikler fra kategorien 'alle_artikler' i vores custom-post-type 'nyheder'. 
+    // Vi skriver et array, som henter 4 artikler ad gangen, og sortere dem efter dato i stigende rækkefølge
     $articles = new WP_Query(
         array(
             'category_name' => 'alle_artikler',
@@ -17,7 +19,7 @@ sejr_davidsens_heroBanner();
             'order' => 'ASC',
         )
     );
-
+    // Vi laver en while-loop, som kører igennem alle artiklerne fra ovenstående, og henter for hver artikel: billede, forfatter, dato, kategori, titel og indhold (trimmet til 25 tegn)
     while ($articles->have_posts()) {
         $articles->the_post();
         $image_url = get_field('billede')['url'];

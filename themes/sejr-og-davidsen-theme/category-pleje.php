@@ -1,7 +1,7 @@
 <?php get_header();
 sejr_davidsens_heroBanner();
 ?>
-
+<!-- Kategoriside for alle nyheder i kategorien "pleje" -->
 <div>
     <main>
         <h1 class="titleForPage archiveTitle">Arkiv: Pleje</h1>

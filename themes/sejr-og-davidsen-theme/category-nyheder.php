@@ -1,7 +1,7 @@
 <?php get_header();
 sejr_davidsens_heroBanner();
 ?>
-
+<!-- Kategoriside for alle nyheder med kategorien "nyheder"-->
 <div>
     <main>
         <h1 class="titleForPage archiveTitle">Arkiv: Nyheder</h1>

@@ -5,7 +5,6 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <!-- KILDE: Google Fonts. Google 2024. Accessed 10/9/2024. URL: https://fonts.google.com/icons -->
     <?php wp_head(); ?>
 </head>
 
@@ -36,7 +35,7 @@
             </ul>
         </nav>
 
-        <a class="search-icon" href="<?php echo esc_url(site_url('/search')) ?>"><span class="material-symbols-outlined">search</span></a>
+        <a class="search-icon" href="#"><span class="material-symbols-outlined">search</span></a>
 
 
     </header>

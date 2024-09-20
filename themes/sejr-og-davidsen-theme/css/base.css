@@ -680,6 +680,10 @@ footer p {
     padding: var(--spacingDouble) 5rem;
 }
 
+.aside-left a {
+    display: inline-block;
+}
+
 .aside-right {
     object-fit: cover;
     width: 20vw;
@@ -771,7 +775,7 @@ footer p {
 }
 
 .brownCard-content {
-    padding: var(--spacingDouble) 15rem;
+    padding: var(--spacingDouble) 8rem;
     gap: var(--spacingDouble);
     display: flex;
     flex-direction: column;
@@ -779,17 +783,11 @@ footer p {
     max-width: 50vw;
 }
 
-.btn-brownCard {
-    margin-left: var(--spacingDouble);
+.brownCard-content p {
+    line-height: unset !important;
 }
 
-
 /* --- BEFORE YOU ADOPT END --- */
-
-
-/* --- NEWS START --- */
-
-/* --- NEWS END --- */
 
 
 /* --- BOARDING AND ADOPTION START --- */
@@ -1227,4 +1225,188 @@ h4 {
 
 .archive-container h5 {
     margin: 0;
+}
+
+/* 404 PAGE */
+
+
+/* Hunden bevæger sig fremad */
+@keyframes DogMove {
+    0% {
+        transform: translateX(-20vw);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+/* Højre ben fremad */
+@keyframes RightLegForwardMove {
+
+    0%,
+    15%,
+    35%,
+    55%,
+    75%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    5%,
+    25%,
+    45%,
+    65%,
+    85% {
+        transform: rotate(3deg);
+        /* Juster for fremad bevægelse */
+    }
+}
+
+/* Højre ben bagud */
+@keyframes RightLegBackwardMove {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: rotate(-3deg);
+        /* Juster for bagud bevægelse */
+    }
+}
+
+/* Venstre ben fremad */
+@keyframes LeftLegForwardMove {
+
+    0%,
+    5%,
+    25%,
+    45%,
+    65%,
+    85% {
+        transform: rotate(0deg) translateY(-10px);
+    }
+
+    15%,
+    35%,
+    55%,
+    75%,
+    95% {
+        transform: rotate(3deg) translateY(-10px);
+        /* Juster for fremad bevægelse */
+    }
+}
+
+/* Venstre ben bagud */
+@keyframes LeftLegBackwardMove {
+
+    0%,
+    15%,
+    35%,
+    55%,
+    75%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    5%,
+    25%,
+    45%,
+    65%,
+    85% {
+        transform: rotate(3deg);
+        transform: translateX(20px);
+        /* Juster for fremad bevægelse */
+    }
+}
+
+@keyframes ToungeWip {
+
+    0%,
+    15%,
+    35%,
+    55%,
+    75%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    5%,
+    25%,
+    45%,
+    65%,
+    85% {
+        transform: rotate(3deg);
+        transform: translateX(5px);
+        /* Juster for fremad bevægelse */
+    }
+}
+
+
+.animationDog {
+    height: 200px;
+    animation: DogMove 5s infinite linear;
+    margin: var(--spacingDouble) 0;
+}
+
+
+#Tounge {
+    animation: ToungeWip 2s infinite ease;
+}
+
+#RightLegForward {
+    animation: RightLegForwardMove 2s infinite ease-in-out;
+}
+
+#RightLegBackward {
+    animation: RightLegBackwardMove 2s infinite ease-in-out;
+}
+
+#LeftLegForward {
+    animation: LeftLegForwardMove 2s infinite ease-in-out;
+}
+
+#LeftLegBackward {
+    animation: LeftLegBackwardMove 2s infinite ease-in-out;
+}
+
+.animation--headline {
+    text-align: center;
+    font-family: var(--logo);
+}
+
+.missingPage--content p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.missingPage--content div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.missingPage--content h1 {
+    font-size: 150px;
+    background-image: url('../images/grass.jpg');
+    background-size: contain;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bolder;
+    margin-bottom: 0;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
 }

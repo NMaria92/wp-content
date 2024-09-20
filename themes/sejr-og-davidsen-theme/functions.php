@@ -1,6 +1,8 @@
 <?php
+// ---- FUNKTIONER ----
 
-// Function for custom heroBanner
+// Function for custom heroBanner til forsiden
+// I funktionen hentes billedet fra ACF-feltet 'hero_banner_background_image' og viser det på siden hvor funktionen kaldes
 function sejr_davidsens_heroBanner_Frontpage()
 {
     $pageBanner = get_field('hero_banner_background_image');
@@ -15,29 +17,27 @@ function sejr_davidsens_heroBanner_Frontpage()
     <?php
 }
 
+// Funktion for custom heroBanner til øvrige sider
 function sejr_davidsens_heroBanner()
 {
-    $pageBanner = get_field('hero_banner_background_image'); // Hent ACF feltet
+    $pageBanner = get_field('hero_banner_background_image'); // Hent ACF feltet og gemme det i variablen $pageBanner
 
-    // Tjek om billedet er sat
+    // Tjek om billedet er sat i ACF-feltet
     if ($pageBanner) {
-        // Hent billedets ID fra ACF-feltet
+        // Hent billedets ID fra ACF-feltet og gem det i variablen $bannerImageID
         $bannerImageID = $pageBanner['ID'];
 
-        // Hent URL'en til billedet med størrelsen 'bannerImage'
+        // Vi laver en variabel $bannerImage. Heri gemmer vi ID'ets-billede-URL i den ønskede størrelse (bannerImage)
         $bannerImage = wp_get_attachment_image_src($bannerImageID, 'bannerImage');
-
-        if ($bannerImage) {
     ?>
-            <div class="heroBanner">
-                <img src="<?php echo esc_url($bannerImage[0]); ?>" alt="<?php echo esc_attr($pageBanner['alt']); ?>">
-                <div class="pageBanner-text">
-                    <h1 class="titleForPage"><?php echo esc_html(get_field('hero-banner-title')); ?></h1>
-                    <h2 class="subtitleForPage"><?php echo esc_html(get_field('hero_banner_subtitle')); ?></h2>
-                </div>
+        <div class="heroBanner">
+            <img src="<?php echo esc_url($bannerImage[0]); ?>" alt="<?php echo esc_attr($pageBanner['alt']); ?>">
+            <div class="pageBanner-text">
+                <h1 class="titleForPage"><?php echo esc_html(get_field('hero-banner-title')); ?></h1>
+                <h2 class="subtitleForPage"><?php echo esc_html(get_field('hero_banner_subtitle')); ?></h2>
             </div>
+        </div>
 <?php
-        }
     }
 }
 
@@ -62,15 +62,17 @@ function custom_breadcrumbs()
     // Array til at holde forældersider
     $parents = [];
 
-    // Få ID for den nuværende post
+    // gem ID for den nuværende post
     $current_post_id = get_the_ID();
 
-    // Hent hierarki af forældersider
+    // Vi henter hierarki af forældersider vha. et while-loop 
     while ($current_post_id) {
         // Få forælder-ID for den nuværende post
         $parent_id = wp_get_post_parent_id($current_post_id);
 
         // Hvis der er en gyldig forælder, tilføj den til arrayet
+        // Vi laver et if/else statement der undersøger om $parent_id er "true" og at $parent_id ikke er 0 eller det samme som den nuværende post
+        // Hvis dette er tilfældet, tilføjes $parent_id til arrayet $parents
         if ($parent_id && $parent_id !== 0 && $parent_id !== $current_post_id) {
             $parents[] = $parent_id;
             // Sæt den aktuelle post til forælderens ID for at fortsætte op i hierarkiet
@@ -81,7 +83,7 @@ function custom_breadcrumbs()
         }
     }
 
-    // Vis brødkrummer hvis der er forældre i hierarkiet
+    // Vis $parents ikke er tom, indsættes en div med brødkrummer
     if (!empty($parents)) {
         // Start brødkrumme-div
         echo '<div class="breadcrumbs">';
@@ -89,7 +91,7 @@ function custom_breadcrumbs()
         // Vend forældre-arrayet så vi viser den øverste forælder først
         $parents = array_reverse($parents);
 
-        // Loop igennem forældrene og lav links
+        // Vi laver et foreach-loop der kører gennem forældrene og opretter links
         foreach ($parents as $parent_id) {
             // Lav et link for hver forælderside med dens titel og separator
             echo '<a href="' . get_permalink($parent_id) . '">' . get_the_title($parent_id) . $separator . '</a>';
@@ -103,18 +105,21 @@ function custom_breadcrumbs()
     }
 }
 
-// Add stylesheets
-add_action('wp_enqueue_scripts', 'sejr_davidsens_files');
-
 // Function for title tag in browser 
 function sejr_davidsens_features()
 {
-    add_theme_support('title-tag');
-    add_image_size('bannerImage', 1920, 474, true);
-    add_image_size('squareImage', 500, 500, true);
+    add_theme_support('title-tag'); // administrere titel-tag i browser 
+    add_image_size('bannerImage', 1920, 474, true); // Tilføjer en custom image size til bannerImage
 }
+
+
+// ---- ADD_ACTIONS -----
+
+// Add stylesheets
+add_action('wp_enqueue_scripts', 'sejr_davidsens_files');
 
 // Add title tag via WordPress event
 add_action('after_setup_theme', 'sejr_davidsens_features');
 
+// Add custom post types
 add_action('init', 'sejr_og_davidsen_posttypes');

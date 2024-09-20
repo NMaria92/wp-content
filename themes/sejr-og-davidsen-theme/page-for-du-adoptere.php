@@ -3,8 +3,6 @@ sejr_davidsens_heroBanner();
 custom_breadcrumbs();
 ?>
 
-
-
 <main>
     <div class="page-container">
         <h2>Vigtige overvejelser inden du anskaffer dig en hund</h2>
@@ -103,7 +101,7 @@ custom_breadcrumbs();
                     <p>Du er mere end velkommen til at kontakte os og få vejledning i “det gode match” og valg af
                         hunderace.
                     </p>
-                    <a class="btn hover-styling"><a href="#">Kontakt os her</a></a>
+                    <a class="btn hover-styling" href="#">Kontakt os her</a>
                 </div>
                 <img class="aside-right" src="<?php echo get_theme_file_uri('./images/Girl_thinking_about_two_dogs-768x768.jpg') ?>" alt="kvinde der tænker på to hunde" loading="lazy">
             </aside>
@@ -208,6 +206,7 @@ custom_breadcrumbs();
         </section>
         <section>
             <h2>Indsigtsfulde artikler for hundeejere</h2>
+            <!-- Vi henter permalink og title fra en specifik kategori fra WP og echoer dem så de vises i browseren -->
             <div class="news-categories">
                 <h5 class="news-black-text">Kategorier:</h5>
                 <a class="btn" href="<?php echo get_term_link('nyheder', 'category') ?>">Nyheder</a>
@@ -241,6 +240,7 @@ custom_breadcrumbs();
                             loading="lazy">
                     </div>
                     <div>
+                        <!-- Vi henter og echoer forfatter, oprettelsesdato og kategorier som indlægget hører til vha. PHP -->
                         <p class="article-styling">Skrevet af <span class="bold-styling"><?php the_author_posts_link(); ?></span> d. <?php the_time('n.j.y'); ?>
                             i <span class="bold-styling"><?php echo get_the_category_list(','); ?></span>
                         </p>
@@ -255,11 +255,9 @@ custom_breadcrumbs();
 
             <?php
             }
-            echo paginate_links();
-
+            //   Vi kalder wp_reset_postdata() for at nulstille postdata
             wp_reset_postdata();
             ?>
-
 
         </section>
     </div>
@@ -267,8 +265,8 @@ custom_breadcrumbs();
         <img src="<?php echo get_theme_file_uri('./images/Black_dog_sitting_in_couch-1536x996.jpg') ?>" alt="Sort hund" loading="lazy">
         <div class="brownCard-content">
             <h2 class="brownCard-title">Er du klar til hund?</h2>
-            <p class="brownCard-text">Se oversigten over hunde på vores internat, der er klar til bortadoption.</p>
-            <span class="brownCard-text">Gå til: <a class="btn btn-brownCard" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption'); ?> ">Dyr til adoption</a></span>
+            <p class="brownCard-text">Se oversigten over hunde på vores internat, der er klar til bortadoption. Se hvilke dyr der er tilgængelige.</p>
+            <span class="brownCard-text"><a class="btn btn-brownCard" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption'); ?> ">Dyr til adoption</a></span>
         </div>
     </section>
 </main>

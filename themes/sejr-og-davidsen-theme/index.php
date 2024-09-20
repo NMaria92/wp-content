@@ -1,4 +1,6 @@
 <!-- THE ULTIMATE FALLBACK PAGE -->
+<!-- Landing page -->
+<!-- Her kalder vi på en funktion, der viser en header og et hero-banner på siden. -->
 <?php get_header();
 
 sejr_davidsens_heroBanner_Frontpage();
@@ -9,6 +11,7 @@ sejr_davidsens_heroBanner_Frontpage();
     <div class="top-section">
         <h2>Vi er en større, velrenommeret dyrepension i Nordjylland med hundepension, internat og adoption.</h2>
         <div class="threedogs-img">
+            <!-- Vi henter billedet ved at anvende get_theme_file_uri() funktionen, som henter billedet fra temaets mappe. -->
             <img src="<?php echo get_theme_file_uri('./images/tree_small_dogs.JPG') ?>" alt="three little dogs" loading="lazy">
         </div>
         <div class="top-section-text">
@@ -26,10 +29,10 @@ sejr_davidsens_heroBanner_Frontpage();
                 forskellige niveauer - fra begynderhold til avancerede hold.</p>
         </div>
     </div>
-
     <div class="adoption-options">
         <div class="card">
             <img src="<?php echo get_theme_file_uri('./images/two_old_people_with_dog.jpg') ?>" alt="hund med to mennesker" loading="lazy">
+            <!-- Vi henter permalink og title på de specifikke ID fra WP og echoer dem så de vises i browseren-->
             <a href="<?php echo get_permalink(71) ?>"><?php echo get_the_title(71) ?></a>
         </div>
         <div class="card">
@@ -47,6 +50,9 @@ sejr_davidsens_heroBanner_Frontpage();
         <div class="news-section-grand-flexbox">
             <div class="newest-article-section">
                 <h3>Aktuel</h3>
+                <!-- Vi laver et custom query i en variabel kaldet "$newArticle", da vi ønsker at hente specifikt 
+                 data fra WP ud fra nogle parametre vi stiller. Et standard querie vil i modsætning hertil, 
+                 hente alle post indenfor default-post-type og ikke i den specifikke rækkefølge vi ønsker -->
                 <?php
                 $newArticle = new WP_Query(
                     array(
@@ -56,7 +62,10 @@ sejr_davidsens_heroBanner_Frontpage();
                         'order' => 'ASC',
                     )
                 );
-
+                // Vi anvender en while-loop til at hente data fra WP og vise det på siden. 
+                // Vi anvender have_posts() for at tjekke om der er posts, og kører så længe der er posts at hente. 
+                // the_post() anvendes til at forberede dataen til at blive vist på siden.
+                // Vi anvender get_field() til at hente data fra ACF.
                 while ($newArticle->have_posts()) {
                     $newArticle->the_post();
                     $image_url = get_field('billede')['url'];
@@ -73,6 +82,7 @@ sejr_davidsens_heroBanner_Frontpage();
                         </p>
                         <h5 class="news-black-text"><?php the_title(); ?></h5>
                         <div class="news-text">
+                            <!-- Vi anvender wp_trim_words() til at forkorte teksten, så den ikke fylder hele siden.   -->
                             <span>
                                 <p><?php echo wp_trim_words(get_field('indhold'), 50); ?><a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a></p>
                             </span>
@@ -118,7 +128,7 @@ sejr_davidsens_heroBanner_Frontpage();
                         </div>
                     </div>
 
-
+                    <!-- Vi anvender wp_reset_postdata() til at nulstille dataen efter vi har kørt vores custom-query. -->
                 <?php
                 }
                 wp_reset_postdata();
@@ -127,11 +137,13 @@ sejr_davidsens_heroBanner_Frontpage();
         </div>
         <div class="link-frontpage-container">
             <h5>Vil du ser flere nyheder?</h5>
+            <!-- Vi anvender get_post_type_archive_link() til at hente permalinket(URL) til vores nyheder, så brugeren 
+             kan klikke sig videre til nyhederne.
+            Vi har defineret post-typen i vores custom query og aktiveret "arkiv" i vores mu-plugins fil. -->
             <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Se flere nyheder</a>
         </div>
     </div>
 </main>
 
-
-
+<!-- Vi kalder på en funktion der skal vise footeren på siden. -->
 <?php get_footer(); ?>

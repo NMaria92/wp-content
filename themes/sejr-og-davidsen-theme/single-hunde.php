@@ -10,7 +10,8 @@ while (have_posts()) {
 <a class="returnBtn" href="<?php echo site_url('/internat-og-adoption/dyr-til-adoption') ?>">«<span class="material-symbols-outlined">
         home
     </span> Dyr til adoption</a>
-<h1 class="mops"><?php echo get_field('navn_pa_hund'); ?></h1>
+<h1 class="mops"><?php echo get_field('navn_pa_hund'); // trækker værdien, som i dette tilfælde er, navn, fra et custom field som er lavet i acf 
+                    ?></h1>
 <section class="mops-present">
     <div>
         <h5 class="mops-h">Præsentation</h5>
@@ -20,13 +21,14 @@ while (have_posts()) {
                 <div class="details">
                     <p><strong>Alder:</strong> <?php echo get_field('alder_pa_dyr'); ?> år</p>
                     <?php
-                    $races = get_field('race_pa_dyr');
-                    if ($races) {
-                        foreach ($races as $race) {
-                            echo '<p><strong>Race:</strong> ' . (get_the_title($race->ID)) . '</p>';
+                    $races = get_field('race_pa_dyr'); // $races vil holde data fra det custom field det er lavet, som er en race liste
+                    if ($races) { // Vi bruger en "if" statement til at tjekke om der er data i $races. Hvis statementet er sandt bliver efterfølgende linje kode udført.
+                        foreach ($races as $race) { // Her går vi igennem loopet af $races vha. foreach. For hver enkelt race i vores liste af racer, vil vi udføre koden nedenfor.
+                            echo '<p><strong>Race:</strong> ' . (get_the_title($race->ID)) . '</p>'; // Vi echoer en paragraph hvor vi viser titel fra den enkelte race ud fra dens ID.
                         }
                     }
                     ?>
+
 
                     <p><strong>Vægt:</strong> <?php echo get_field('vaegt_pa_dyr'); ?> kg</p>
                     <p><strong>Højde:</strong> <?php echo get_field('hojde_pa_dyr'); ?> cm</p>
@@ -36,14 +38,14 @@ while (have_posts()) {
                     <p><strong>Farve:</strong> <?php echo get_field('farve'); ?></p>
 
                     <?php
+                    // Vi laver et if/else statement, som tjekker om der er en race tilknyttet hunden. 
+                    // Hvis der er, så skifter vi til racen og viser dens data.
+                    // Hvis der ikke er en race, så vises en besked om, at der ikke er en race tilknyttet hunden.
+                    // Da vi ønsker at vise data fra to forskellige posttypes (hunde og racer), skal vi bruge setup_postdata() for at skifte posttype.
                     if ($races) {
-                        // Hvis der er en race forbundet med hunden, skift til racen
                         foreach ($races as $single_race) {
-                            // Skift postdata til race-posten
-                            $race_id = $single_race->ID; // Race-ID'et gemmes i en variabel
-                            $race_title = get_the_title($race_id); // Titel på racen (navnet) som ovenstående ID bærer, skal gemmes i en variabel
-
-                            // Setup postdata for race-posten. Vi skifter posttype fra "hunde" til "racer"
+                            $race_id = $single_race->ID; // Race-ID'et gemmes i en variabel, så det kan bruges senere
+                            // Setup postdata for race-posten. Vi skifter posttype fra "hunde" til "racer" 
                             setup_postdata($single_race);
 
                             // Output racens data
@@ -67,11 +69,15 @@ while (have_posts()) {
     </div>
 
     <div class="front-mops">
+        <!-- Billede af hunden
+                 Vha. et if/else statement tjekker vi om der er et billede af dyret i WP, og hvis der er, så vises det. Hvis ikke, så vises et fallback-billede
+                  -->
         <?php
-        if (get_field('billede_af_dyret')) {
-            $animalImage = get_field('billede_af_dyret');
+        if (get_field('billede_af_dyret')) { // Tjekker om det er findes et billede, som er i et acf som hedder billede_af_dyret
+            $animalImage = get_field('billede_af_dyret'); // Gemmer variabel af billedet, som så kan bruges senere
         ?>
-            <img class="front-mops" src="<?php echo esc_url($animalImage['url']) ?>" alt="<?php echo esc_attr($animalImage['alt']) ?>">
+            <img class="front-mops" src="<?php echo esc_url($animalImage['url']) ?>" alt="<?php echo esc_attr($animalImage['alt']) // Her udskriver vi billedets URL og alt-attribut ved at bruge variablen $animalImage, som indeholder information om billedet
+                                                                                            ?>">
         <?php
         } else {
             // Fallback image, hvis der ikke er et billede
@@ -83,6 +89,7 @@ while (have_posts()) {
 
 <div class="dog-container">
     <div class="left-column">
+        <!-- Her får vi udskrevet nogen specifikke felter for en bestem race ved hjælp af acf og $race_id  -->
         <h3>Racebeskrivelse</h3>
         <p> <?php echo get_field('racebeskrivelse', $race_id); ?></p>
 
@@ -101,32 +108,30 @@ while (have_posts()) {
                 <p>Familievenlig:</p>
                 <div class="box-container">
                     <?php
+                    // variablen familievenlig repræsenterer en værdi mellem 1-5, som er hentet fra ACF-feltet "familievenlig" på racen.
                     $familievenlig = get_field('familievenlig', $race_id);
 
-                    // For-loop der udskriver ratingen (i form af udfyldte og tomme bokse) for familievenlighed
+                    // For-loop med et if/else der udskriver ratingen (i form af udfyldte og tomme bokse) for familievenlighed
                     // Loopet er nødvendigt for at omstille værdien fra WP til en visuel skala i HTML
-                    $filled_boxes = $familievenlig;
-                    for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $filled_boxes) {
+                    for ($i = 1; $i <= 5; $i++) { // loopet kører 5 gange og starter ved 1, og for hver gang den kører, skal den ligge én til værdien af $i
+                        if ($i <= $familievenlig) { // tjekker vi om $i er mindre end eller lig med værdien af $familievenlig, så indsættes én fyldt boks pr. gang koden kører.
                             echo '<div class="box filled"></div>';
                         } else {
-                            echo '<div class="box"></div>';
+                            echo '<div class="box"></div>'; // hvis betingelserne ikke er opfyldt så indsættes en tom boks pr. gang koden kører.
                         }
                     }
                     ?>
                 </div>
             </div>
 
-
             <div class="info-box">
                 <p>Pelspleje:</p>
                 <div class="box-container">
                     <?php
                     $pelspleje = get_field('pelspleje', $race_id);
-                    $filled_boxes = $pelspleje;
 
                     for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $filled_boxes) {
+                        if ($i <= $pelspleje) {
                             echo '<div class="box filled"></div>';
                         } else {
                             echo '<div class="box"></div>';
@@ -141,10 +146,9 @@ while (have_posts()) {
                 <div class="box-container">
                     <?php
                     $aktivitetsniveau = get_field('aktivitetsniveau', $race_id);
-                    $filled_boxes = $aktivitetsniveau;
 
                     for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $filled_boxes) {
+                        if ($i <= $aktivitetsniveau) {
                             echo '<div class="box filled"></div>';
                         } else {
                             echo '<div class="box"></div>';
@@ -159,10 +163,9 @@ while (have_posts()) {
                 <div class="box-container">
                     <?php
                     $temperament = get_field('temperament', $race_id);
-                    $filled_boxes = $temperament;
 
                     for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $filled_boxes) {
+                        if ($i <= $temperament) {
                             echo '<div class="box filled"></div>';
                         } else {
                             echo '<div class="box"></div>';
@@ -194,7 +197,7 @@ wp_reset_postdata();
     <div class="image-container">
 
         <?php
-        // en WP_Query der henter de seneste 4 posts
+        // en WP_Query der henter de seneste 4 posts(hunde) fra databasen
         $recent_posts_query = new WP_Query(array(
             'posts_per_page' => 4, // Antallet af posts
             'post_type' => 'Hunde', // Posttypen (her standard "post")
@@ -202,11 +205,10 @@ wp_reset_postdata();
             'order' => 'DESC' // Sortér i faldende rækkefølge (nyeste først)
         ));
 
-        while ($recent_posts_query->have_posts()) {
-            $recent_posts_query->the_post();
-            $recent_postsImage = get_field('billede_af_dyret') ?>
-
-            <a href="<?php echo get_permalink(); ?>">
+        while ($recent_posts_query->have_posts()) { // tjekker om det er posts, som vi laver fra vores custom query som har variabel navn $recent_post_query og køre så længe det er posts
+            $recent_posts_query->the_post(); // Henter information fra det næste indlæg som skal hentes.
+            $recent_postsImage = get_field('billede_af_dyret') ?> <!-- Her henter vi værdien af et felt i acf som har navnet billdet_af_dyret-->
+            <a href="<?php echo get_permalink(); ?>"> <!-- Her echo vi, til at udskrive URL'en til det aktuelle indlæg ved hjælp af WordPress-funktionen get_permalink() -->
                 <img src="<?php echo esc_url($recent_postsImage['url']) ?>" alt="<?php echo esc_attr($recent_postsImage['alt']) ?>">
                 <h5><?php echo get_field('navn_pa_hund'); ?></h5>
             </a>

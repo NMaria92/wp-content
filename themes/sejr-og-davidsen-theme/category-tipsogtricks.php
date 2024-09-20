@@ -1,7 +1,7 @@
 <?php get_header();
 sejr_davidsens_heroBanner();
 ?>
-
+<!-- Kategoriside for alle nyheder med kategorien "tips og tricks"-->
 <div>
     <main>
         <h1 class="titleForPage archiveTitle">Arkiv: Tips & Tricks</h1>
