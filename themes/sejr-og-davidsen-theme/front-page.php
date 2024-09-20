@@ -1,3 +1,5 @@
+<!-- Landing page -->
+<!-- Her kalder vi på en funktion, der viser en header og et hero-banner på siden. -->
 <?php get_header();
 
 sejr_davidsens_heroBanner_Frontpage();
@@ -8,6 +10,7 @@ sejr_davidsens_heroBanner_Frontpage();
     <div class="top-section">
         <h2>Vi er en større, velrenommeret dyrepension i Nordjylland med hundepension, internat og adoption.</h2>
         <div class="threedogs-img">
+            <!-- Vi henter billedet ved at anvende get_theme_file_uri() funktionen, som henter billedet fra temaets mappe. -->
             <img src="<?php echo get_theme_file_uri('./images/tree_small_dogs.JPG') ?>" alt="three little dogs" loading="lazy">
         </div>
         <div class="top-section-text">
@@ -25,10 +28,10 @@ sejr_davidsens_heroBanner_Frontpage();
                 forskellige niveauer - fra begynderhold til avancerede hold.</p>
         </div>
     </div>
-
     <div class="adoption-options">
         <div class="card">
             <img src="<?php echo get_theme_file_uri('./images/two_old_people_with_dog.jpg') ?>" alt="hund med to mennesker" loading="lazy">
+            <!-- Vi henter permalink og title på de specifikke ID fra WP og echoer dem så de vises i browseren-->
             <a href="<?php echo get_permalink(71) ?>"><?php echo get_the_title(71) ?></a>
         </div>
         <div class="card">
@@ -41,83 +44,105 @@ sejr_davidsens_heroBanner_Frontpage();
         </div>
     </div>
 
-    <div class="news-section">
+    <div class="article-section">
         <h2>Nyheder</h2>
-        <div class="news-grid">
-            <!-- Left news article -->
-            <div>
+        <div class="news-section-grand-flexbox">
+            <div class="newest-article-section">
                 <h3>Aktuel</h3>
-                <img class="news-big-img" src="<?php echo get_theme_file_uri('./images/Rabies_needles.jpg') ?>" alt="rabies vaccine i kanyle, stetoskop og vaccinationskort" loading="lazy">
-                <p class="article-styling">Skrevet af <span class="bold-styling">Majbrit Kjær</span> d.
-                    03-09-2024
-                    i <span class="bold-styling">Nyheder</span>
-                </p>
-                <h3>Nye rabies regler træder i kraft</h3>
-                <p>Den 1. Januar 2025 træder en ny regel i kraft om at man ikke længere må importere hvalpe med den
-                    såkaldte hvalpe/killingeerklæring. Erklæringen gør det muligt at flytte hunde, katte og fritter
-                    ind i Danmark uden at dyret har en rabiesvaccine der er gyldig.
-                </p>
-                <p>Det er fødevarestyrelsen som har vurderet at risikoen for at får rabiessmitte til landet er alt
-                    for stor ved, at kunne indfører dyr på hvalpe/killingeerklæringen. Fødevarestyrelsen har derfor
-                    set sig nødsaget til at ophæve dispensationen for kravet om en gyldig rabiesvaccine. Man kan dog
-                    fortsat anvende erklæringen til og med 31. december 2024. </p>
+                <!-- Vi laver et custom query i en variabel kaldet "$newArticle", da vi ønsker at hente specifikt 
+                 data fra WP ud fra nogle parametre vi stiller. Et standard querie vil i modsætning hertil, 
+                 hente alle post indenfor default-post-type og ikke i den specifikke rækkefølge vi ønsker -->
+                <?php
+                $newArticle = new WP_Query(
+                    array(
+                        'post_type' => 'nyheder',
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'ASC',
+                    )
+                );
+                // Vi anvender en while-loop til at hente data fra WP og vise det på siden. 
+                // Vi anvender have_posts() for at tjekke om der er posts, og kører så længe der er posts at hente. 
+                // the_post() anvendes til at forberede dataen til at blive vist på siden.
+                // Vi anvender get_field() til at hente data fra ACF.
+                while ($newArticle->have_posts()) {
+                    $newArticle->the_post();
+                    $image_url = get_field('billede')['url'];
+                    $image_alt = get_field('billede')['alt'];
+                ?>
+
+                    <div>
+                        <img class="new-article-img" src="<?php echo esc_url($image_url) ?>" alt="<?php echo $image_alt; ?>"
+                            loading="lazy">
+                    </div>
+                    <div>
+                        <p class="article-styling">Skrevet af <span class="bold-styling"><?php the_author_posts_link(); ?></span> d. <?php the_time('n.j.y'); ?>
+                            i <span class="bold-styling"><?php echo get_the_category_list(','); ?></span>
+                        </p>
+                        <h5 class="news-black-text"><?php the_title(); ?></h5>
+                        <div class="news-text">
+                            <!-- Vi anvender wp_trim_words() til at forkorte teksten, så den ikke fylder hele siden.   -->
+                            <span>
+                                <p><?php echo wp_trim_words(get_field('indhold'), 50); ?><a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a></p>
+                            </span>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
-            <!-- Right side news previews -->
-            <div>
+            <div class="random-news-section">
                 <h3>Se øvrige nyheder</h3>
-                <div class="news-item">
-                    <div>
-                        <img src="<?php echo get_theme_file_uri('./images/beagle_playing_with_ball.png') ?>" alt="Beagle hund der leger på en græsplæne med en grøn plastikbold" loading="lazy">
-                    </div>
-                    <div>
-                        <p class="article-styling">Skrevet af <span class="bold-styling">Anette Nielsen</span> d.
-                            23-07-2024 i <span class="bold-styling">Nyheder</span>
-                        </p>
-                        <div class="news-text">
-                            <h4>Nyt lydighedshold opstart d. 1. oktober</h4>
-                            <p>At have en hund som en følgesvend kan være en af de mest givende oplevelser, men det
-                                kræver også en betydelig indsats og tid. Lydighedstræning er en afgørende del af at have
-                                en velopdragen hund. Det handler om at lære din hund at adlyde dine kommandoer og være i
-                                stand til at styre dens adfærd…<a class="readmore-link" href="">Læs mere</a></p>
+
+                <?php
+                $ramdomArticles = new WP_Query(
+                    array(
+                        'post_type' => 'nyheder',
+                        'posts_per_page' => 3,
+                        'orderby' => 'rand',
+                        'order' => 'ASC',
+                    )
+                );
+
+                while ($ramdomArticles->have_posts()) {
+                    $ramdomArticles->the_post();
+                    $image_url = get_field('billede')['url'];
+                    $image_alt = get_field('billede')['alt'];
+                ?>
+                    <div class="flex-item">
+                        <div>
+                            <img class="article-item-img" src="<?php echo esc_url($image_url) ?>" alt="<?php echo $image_alt; ?>"
+                                loading="lazy">
+                        </div>
+                        <div class="news-flex-item">
+                            <p class="article-styling">Skrevet af <span class="bold-styling"><?php the_author_posts_link(); ?></span> d. <?php the_time('n.j.y'); ?>
+                                i <span class="bold-styling"><?php echo get_the_category_list(','); ?></span>
+                            </p>
+                            <h5 class="news-black-text"><?php the_title(); ?></h5>
+                            <div class="news-text">
+                                <span>
+                                    <p><?php echo wp_trim_words(get_field('indhold'), 50); ?><a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a></p>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="news-item">
-                    <div>
-                        <img src="<?php echo get_theme_file_uri('./images/Woman_washing_dog.jpg') ?>" alt="kvinde der børster en hund med en Furminator-børste" loading="lazy">
-                    </div>
-                    <div>
-                        <p class="article-styling">Skrevet af <span class="bold-styling">Niels Burgenheim</span> d.
-                            10-09-2024 i <span class="bold-styling">Tips&Tricks</span>
-                        </p>
-                        <div class="news-text">
-                            <h4>Ny artikel: Pelspleje din hund</h4>
-                            <p>Med over 300 forskellige hunderacer er der også mange forskellige typer pels. Hundens
-                                pels har gennem århundrederne nemlig tilpasset sig de forskellige krav. Hos mange hunde
-                                består pelsen af dækhår og en isolerende underuld…<a class="readmore-link" href="">Læs mere</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <div>
-                        <img src="<?php echo get_theme_file_uri('./images/beagle_playing_with_stick.png') ?>" alt="Beagle hund der leger på en pind" loading="lazy">
-                    </div>
-                    <div>
-                        <p class="article-styling">Skrevet af <span class="bold-styling">Majbrit Kjær</span> d.
-                            10-09-2024 i <span class="bold-styling">Nyheder</span>
-                        </p>
-                        <div class="news-text">
-                            <h4>Nye hunde klar til bortadoption</h4>
-                            <p>Vi har fået nye hunde klar til adoption! Mød dem her, og se om en af dem kan blive en del
-                                af din familie....<a class="readmore-link" href="">Læs mere</a></p>
-                        </div>
-                    </div>
-                </div>
+
+                    <!-- Vi anvender wp_reset_postdata() til at nulstille dataen efter vi har kørt vores custom-query. -->
+                <?php
+                }
+                wp_reset_postdata();
+                ?>
             </div>
+        </div>
+        <div class="link-frontpage-container">
+            <h5>Vil du ser flere nyheder?</h5>
+            <!-- Vi anvender get_post_type_archive_link() til at hente permalinket(URL) til vores nyheder, så brugeren 
+             kan klikke sig videre til nyhederne.
+            Vi har defineret post-typen i vores custom query og aktiveret "arkiv" i vores mu-plugins fil. -->
+            <a href="<?php echo get_post_type_archive_link('nyheder') ?>" class="btn">Se flere nyheder</a>
         </div>
     </div>
 </main>
 
-
-
+<!-- Vi kalder på en funktion der skal vise footeren på siden. -->
 <?php get_footer(); ?>
