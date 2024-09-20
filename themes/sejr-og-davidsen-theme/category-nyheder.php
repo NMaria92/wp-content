@@ -22,21 +22,20 @@ sejr_davidsens_heroBanner();
             $image_url = get_field('billede')['url'];
             $image_alt = get_field('billede')['alt'];
         ?>
-            <div class="introText">
+            <div class="introText flex-item">
                 <div>
                     <img class="article-img" src="<?php echo esc_url($image_url) ?>" alt="<?php echo $image_alt; ?>"
                         loading="lazy">
                 </div>
-                <div>
+                <div class="random-news-section">
                     <p class="article-styling">Skrevet af <span class="bold-styling"><?php the_author_posts_link(); ?></span> d. <?php the_time('n.j.y'); ?>
                         i <span class="bold-styling"><?php echo get_the_category_list(','); ?></span>
                     </p>
 
                     <h5 class="news-black-text"><?php the_title(); ?></h5>
                     <div class="dogtype-styling">
-                        <p><?php echo wp_trim_words(get_field('indhold'), 25); ?>
-                            <a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a>
-                        </p>
+                        <p><?php echo wp_trim_words(get_field('indhold'), 25); ?></p>
+                        <a class="readmore-link" href="<?php the_permalink(); ?>">Læs mere</a>
                     </div>
                     <hr class="section-break">
                 </div>
